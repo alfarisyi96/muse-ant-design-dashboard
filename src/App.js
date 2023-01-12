@@ -23,6 +23,8 @@ import "antd/dist/antd.css";
 import "./assets/styles/main.css";
 import "./assets/styles/responsive.css";
 import SalesOrder from "./pages/Sales/SalesOrder";
+import SalesOrderForm from "./pages/Sales/SalesOrder/SalesOrderForm";
+import SalesOrderDetail from "./pages/Sales/SalesOrder/SalesOrderDetail";
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
         <Main>
           <Route exact path="/dashboard" component={Home} />
           <Route exact path="/sales-order" component={SalesOrder} />
+          <Route exact path="/sales-order/form" component={SalesOrderForm} />
+          <Route exact path="/sales-order/detail" component={SalesOrderDetail} />
           
           <Route exact path="/tables" component={Tables} />
           <Route exact path="/billing" component={Billing} />
