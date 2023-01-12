@@ -181,8 +181,8 @@ function Sidenav({ color }) {
             <span className="label">Dashboard</span>
           </NavLink>
         </Menu.Item>
-        <Menu.Item key="2">
-          <NavLink to="/sales-order">
+        <Menu.SubMenu
+          icon={
             <span
               className="icon"
               style={{
@@ -191,9 +191,160 @@ function Sidenav({ color }) {
             >
               {tables}
             </span>
-            <span className="label">Sales Order</span>
-          </NavLink>
-        </Menu.Item>
+          }
+          title="Sales"
+        >
+          <Menu.Item>
+            <NavLink to="/sales-order">
+              <span>Sales Order</span>
+            </NavLink>
+          </Menu.Item>
+          <Menu.Item>
+            <NavLink to="/sales-orde/reportr">
+              <span>Report</span>
+            </NavLink>
+          </Menu.Item>
+        </Menu.SubMenu>
+        <Menu.SubMenu
+          icon={
+            <span
+              className="icon"
+              style={{
+                background: page === "tables" ? color : "",
+              }}
+            >
+              {tables}
+            </span>
+          }
+          title="Purchase"
+        >
+          <Menu.Item>
+            <NavLink to="/purchase-order">
+              <span>Purchase Order</span>
+            </NavLink>
+          </Menu.Item>
+          <Menu.Item>
+            <NavLink to="/purchase-order/report">
+              <span>Report</span>
+            </NavLink>
+          </Menu.Item>
+        </Menu.SubMenu>
+        <Menu.SubMenu
+          icon={
+            <span
+              className="icon"
+              style={{
+                background: page === "tables" ? color : "",
+              }}
+            >
+              {tables}
+            </span>
+          }
+          title="Logistic"
+        >
+          <Menu.Item>
+            <NavLink to="/logistic/movement">
+              <span>Movement</span>
+            </NavLink>
+          </Menu.Item>
+          <Menu.Item>
+            <NavLink to="/logistic/stock">
+              <span>Stock</span>
+            </NavLink>
+          </Menu.Item>
+          <Menu.Item>
+            <NavLink to="/logistic/report">
+              <span>Report</span>
+            </NavLink>
+          </Menu.Item>
+        </Menu.SubMenu>
+        <Menu.SubMenu
+          icon={
+            <span
+              className="icon"
+              style={{
+                background: page === "tables" ? color : "",
+              }}
+            >
+              {tables}
+            </span>
+          }
+          title="Finance"
+        >
+          <Menu.Item>
+            <NavLink to="/finance/sales-order">
+              <span>Sales Order</span>
+            </NavLink>
+          </Menu.Item>
+          <Menu.Item>
+            <NavLink to="/finance/purchase-order">
+              <span>Purchase Order</span>
+            </NavLink>
+          </Menu.Item>
+          <Menu.Item>
+            <NavLink to="/finance/report">
+              <span>Report</span>
+            </NavLink>
+          </Menu.Item>
+        </Menu.SubMenu>
+        <Menu.SubMenu
+          icon={
+            <span
+              className="icon"
+              style={{
+                background: page === "tables" ? color : "",
+              }}
+            >
+              {tables}
+            </span>
+          }
+          title="Data"
+        >
+          <Menu.Item>
+            <NavLink to="/data/item">
+              <span>Item</span>
+            </NavLink>
+          </Menu.Item>
+          <Menu.Item>
+            <NavLink to="/data/warehouse">
+              <span>Warehouse</span>
+            </NavLink>
+          </Menu.Item>
+          <Menu.Item>
+            <NavLink to="/data/cusstomer">
+              <span>Customer</span>
+            </NavLink>
+          </Menu.Item>
+          <Menu.Item>
+            <NavLink to="/data/supplier">
+              <span>Supplier</span>
+            </NavLink>
+          </Menu.Item>
+        </Menu.SubMenu>
+        <Menu.SubMenu
+          icon={
+            <span
+              className="icon"
+              style={{
+                background: page === "tables" ? color : "",
+              }}
+            >
+              {tables}
+            </span>
+          }
+          title="User"
+        >
+          <Menu.Item>
+            <NavLink to="/data/item">
+              <span>User</span>
+            </NavLink>
+          </Menu.Item>
+          <Menu.Item>
+            <NavLink to="/data/warehouse">
+              <span>Group</span>
+            </NavLink>
+          </Menu.Item>
+        </Menu.SubMenu>
         <Menu.Item className="menu-item-header" key="5">
           Account Pages
         </Menu.Item>

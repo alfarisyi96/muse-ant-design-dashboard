@@ -1,0 +1,25 @@
+{
+    "detail": {
+        "id": "1",
+        "code": "S00001",
+        "customer": "PT Global Service Indonesia",
+        "total_amount": "Rp 152.000.000",
+        "progress_stocks": "0",
+        "progress_delivered": "0",
+        "due_date": "20/01/2023",
+        "created_date": "10/01/2023",
+        "user": {
+            "name": "Michael John",
+            "email": "michael@mail.com"
+        },
+        "status": "DRAFT",
+        "items": [
+            {
+                "name": "Lampu",
+                "stock": "100",
+                "quantity": "10",
+                "price": ""
+            }
+        ]
+    }
+}

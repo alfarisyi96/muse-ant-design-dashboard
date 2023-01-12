@@ -1,37 +1,9 @@
 import { Row, Col, Card, Table, Button } from "antd";
+import { Link } from "react-router-dom";
 import useData from "./hooks/useData";
 
-const columns = [
-  {
-    title: "CODE",
-    dataIndex: "code",
-    key: "code",
-  },
-  {
-    title: "CUSTOMER",
-    dataIndex: "customer",
-    key: "customer",
-  },
-
-  {
-    title: "DUE DATE",
-    key: "due_date",
-    dataIndex: "due_date",
-  },
-  {
-    title: "STATUS",
-    key: "status",
-    dataIndex: "status",
-  },
-  {
-    title: "USER",
-    key: "user",
-    dataIndex: "user",
-  },
-];
-
 function SalesOrder() {
-  const { data } = useData();
+  const { data, columns } = useData();
 
   return (
     <>
@@ -44,7 +16,9 @@ function SalesOrder() {
               title="Sales Order"
               extra={
                 <>
-                  <Button type="primary">New Sales Order</Button>
+                  <Link to="/sales-order/form">
+                    <Button type="primary">New Sales Order</Button>
+                  </Link>
                 </>
               }
             >

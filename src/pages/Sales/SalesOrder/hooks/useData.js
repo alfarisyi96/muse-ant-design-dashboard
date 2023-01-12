@@ -1,11 +1,16 @@
-import { Button, Avatar, Typography, Menu, Dropdown } from "antd";
+import { useState } from "react";
+import {
+  Button,
+  Avatar,
+  Typography,
+  Menu,
+  Dropdown,
+  Tooltip,
+  Progress,
+  Tag,
+} from "antd";
 import { DownOutlined } from "@ant-design/icons";
-import face from "../../../../assets/images/face-1.jpg";
-import face2 from "../../../../assets/images/face-2.jpg";
-import face3 from "../../../../assets/images/face-3.jpg";
-import face4 from "../../../../assets/images/face-4.jpg";
-import face5 from "../../../../assets/images/face-5.jpeg";
-import face6 from "../../../../assets/images/face-6.jpeg";
+import salesOrderData from "../data/salesOrderData.json";
 
 const { Title } = Typography;
 
@@ -17,161 +22,148 @@ const menu = (
   </Menu>
 );
 
-const useData = () => {
-  const data = [
-    {
-      key: "1",
-      code: "S00001",
-      customer: "PT Nayaka Pratama",
-      due_date: "20/01/2023",
-      user: (
-        <>
-          <Avatar.Group>
-            <div className="avatar-info">
-              <Title level={5}>Michael John</Title>
-              <p>michael@mail.com</p>
-            </div>
-          </Avatar.Group>{" "}
-        </>
-      ),
-      status: (
-        <>
-          <Dropdown overlay={menu}>
-            <Button type="primary" size="small">
-              APPROVED <DownOutlined style={{ marginLeft: "1rem" }} />
-            </Button>
-          </Dropdown>
-        </>
-      ),
-    },
-    {
-      key: "1",
-      code: "S00001",
-      customer: "PT Nayaka Pratama",
-      due_date: "20/01/2023",
-      user: (
-        <>
-          <Avatar.Group>
-            <div className="avatar-info">
-              <Title level={5}>Michael John</Title>
-              <p>michael@mail.com</p>
-            </div>
-          </Avatar.Group>{" "}
-        </>
-      ),
-      status: (
-        <>
-          <Dropdown overlay={menu}>
-            <Button type="primary" size="small">
-              APPROVED <DownOutlined style={{ marginLeft: "1rem" }} />
-            </Button>
-          </Dropdown>
-        </>
-      ),
-    },
-    {
-      key: "2",
-      code: "S00001",
-      customer: "PT Nayaka Pratama",
-      due_date: "20/01/2023",
-      user: (
-        <>
-          <Avatar.Group>
-            <div className="avatar-info">
-              <Title level={5}>Michael John</Title>
-              <p>michael@mail.com</p>
-            </div>
-          </Avatar.Group>{" "}
-        </>
-      ),
-      status: (
-        <>
-          <Dropdown overlay={menu}>
-            <Button type="primary" size="small">
-              APPROVED <DownOutlined style={{ marginLeft: "1rem" }} />
-            </Button>
-          </Dropdown>
-        </>
-      ),
-    },
-    {
-      key: "3",
-      code: "S00001",
-      customer: "PT Nayaka Pratama",
-      due_date: "20/01/2023",
-      user: (
-        <>
-          <Avatar.Group>
-            <div className="avatar-info">
-              <Title level={5}>Michael John</Title>
-              <p>michael@mail.com</p>
-            </div>
-          </Avatar.Group>{" "}
-        </>
-      ),
-      status: (
-        <>
-          <Dropdown overlay={menu}>
-            <Button type="primary" size="small">
-              APPROVED <DownOutlined style={{ marginLeft: "1rem" }} />
-            </Button>
-          </Dropdown>
-        </>
-      ),
-    },
-    {
-      key: "4",
-      code: "S00001",
-      customer: "PT Nayaka Pratama",
-      due_date: "20/01/2023",
-      user: (
-        <>
-          <Avatar.Group>
-            <div className="avatar-info">
-              <Title level={5}>Michael John</Title>
-              <p>michael@mail.com</p>
-            </div>
-          </Avatar.Group>{" "}
-        </>
-      ),
-      status: (
-        <>
-          <Dropdown overlay={menu}>
-            <Button type="primary" size="small">
-              APPROVED <DownOutlined style={{ marginLeft: "1rem" }} />
-            </Button>
-          </Dropdown>
-        </>
-      ),
-    },
-    {
-      key: "5",
-      code: "S00001",
-      customer: "PT Nayaka Pratama",
-      due_date: "20/01/2023",
-      user: (
-        <>
-          <Avatar.Group>
-            <div className="avatar-info">
-              <Title level={5}>Michael John</Title>
-              <p>michael@mail.com</p>
-            </div>
-          </Avatar.Group>{" "}
-        </>
-      ),
-      status: (
-        <>
-          <Dropdown overlay={menu}>
-            <Button type="primary" size="small">
-              APPROVED <DownOutlined style={{ marginLeft: "1rem" }} />
-            </Button>
-          </Dropdown>
-        </>
-      ),
-    },
-  ];
+const columns = [
+  {
+    title: "CODE",
+    dataIndex: "code",
+    key: "code",
+  },
+  {
+    title: "CUSTOMER",
+    dataIndex: "customer",
+    key: "customer",
+  },
+  {
+    title: "TOTAL AMOUNT",
+    key: "total_amount",
+    dataIndex: "total_amount",
+  },
+  {
+    title: "PROGRESS",
+    key: "progress",
+    dataIndex: "progress",
+  },
+  {
+    title: "DUE DATE",
+    key: "due_date",
+    dataIndex: "due_date",
+  },
+  {
+    title: "STATUS",
+    key: "status",
+    dataIndex: "status",
+  },
+  {
+    title: "USER",
+    key: "user",
+    dataIndex: "user",
+  },
+];
 
-  return { data };
+const STATUS_PROPS = {
+  DRAFT: {
+    label: "DRAFT",
+    color: "grey",
+    menu: (
+      <Menu>
+        <Menu.Item>SUBMIT</Menu.Item>
+      </Menu>
+    ),
+  },
+  WAITING_APPROVAL: {
+    label: "WAITING FOR APPROVAL",
+    color: "orange",
+    menu: (
+      <Menu>
+        <Menu.Item>APPROVE</Menu.Item>
+        <Menu.Item danger>REJECT</Menu.Item>
+      </Menu>
+    ),
+  },
+  APPROVED: {
+    label: "APPROVED",
+    color: "blue",
+    menu: (
+      <Menu>
+        <Menu.Item danger>VOID</Menu.Item>
+      </Menu>
+    ),
+  },
+  REJECTED: {
+    label: "REJECTED",
+    color: "red",
+    menu: (
+      <Menu>
+        <Menu.Item danger>DRAFT</Menu.Item>
+      </Menu>
+    ),
+  },
+  COMPLETED: {
+    label: "COMPLETED",
+    color: "green",
+    menu: (
+      <Menu>
+        <Menu.Item danger>VOID</Menu.Item>
+      </Menu>
+    ),
+  },
+  VOID: {
+    label: "VOID",
+    color: "grey",
+    menu: <></>,
+  },
+};
+const initialData = [];
+
+salesOrderData.map((salesOrder) => {
+  initialData.push({
+    key: salesOrder.id,
+    code: salesOrder.code,
+    customer: salesOrder.customer,
+    total_amount: salesOrder.total_amount,
+    progress: (
+      <>
+        <Tooltip
+          title={`${salesOrder.progress_stocks} fullfilled / ${salesOrder.progress_delivered} delivered`}
+        >
+          <Progress
+            percent={salesOrder.progress_delivered}
+            success={{ percent: salesOrder.progress_stocks }}
+          />
+        </Tooltip>
+      </>
+    ),
+    due_date: salesOrder.due_date,
+    created_date: salesOrder.created_date,
+    user: (
+      <>
+        <Avatar.Group>
+          <div className="avatar-info">
+            <Title level={5}>{salesOrder.user.name}</Title>
+            <p>{salesOrder.user.email}</p>
+          </div>
+        </Avatar.Group>
+      </>
+    ),
+    status: (
+      <>
+        <Dropdown overlay={STATUS_PROPS[salesOrder.status].menu}>
+          <Tag color={STATUS_PROPS[salesOrder.status].color}>
+            {STATUS_PROPS[salesOrder.status].label}
+            {salesOrder.status !== 'VOID' ? (
+              <DownOutlined style={{ marginLeft: "1rem" }} />
+            ) : null}
+          </Tag>
+        </Dropdown>
+      </>
+    ),
+  });
+});
+
+const useData = () => {
+  const [data, setData] = useState(initialData);
+
+  return { data, columns };
 };
 
 export default useData;

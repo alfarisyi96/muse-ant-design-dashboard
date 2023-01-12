@@ -42,7 +42,7 @@ once status reach completed, stock refresh doesnt work
         - filter
             Code   Customer     Due Date   User    Status
         - data
-            No.     Code       Customer     Total Price      Due Date       Created Date    User     Status
+            No.     Code       Customer     Total Amount    Progress      Due Date       Created Date    User     Status
     - form
         Customer Name
         Shipping Address
@@ -59,14 +59,15 @@ once status reach completed, stock refresh doesnt work
         [STATUS]
         Customer Name
         Shipping Address
+        Progress
         Due Date
         Created Date
         User
         
         [ITEMS] [REFRESH STOCK]
-        No.     Item    Stock   Quantity     Price   Sub Total
+        No.     Item    Stock   PO      Required    Quantity     Price   Sub Total
 
-        Total Price
+        Total Amount
 
 # Purchase Order 
     - table
@@ -75,7 +76,7 @@ once status reach completed, stock refresh doesnt work
             Code   Supplier     Due Date   User    Status
         - data
             [Purchase Order]
-                No.     Code       Supplier     Total Price      Due Date       Created Date    User    Status
+                No.     Code       Supplier     Total Price      Progress       Due Date       Created Date    User    Status
 
             [Sales Order]
                 No.     Code       Stock    PO      Required   Due Date
@@ -149,9 +150,9 @@ once status reach completed, stock refresh doesnt work
     - Stock
         - table
             - filter
-                item name   warehouse   month   year
+                item name   warehouse   date
             - data
-                No.     Item Code   Item Name       Stock
+                No.     Item Code   Item Name       Stock Before    In      Out     Last Stock
 # Finance 
     - sales order
         - table
