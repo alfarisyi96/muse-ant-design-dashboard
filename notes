@@ -1,0 +1,238 @@
+menu:
+    - Sales
+        - Sales Order
+        - Report
+    - Purchase
+        - Purchase Order
+        - Report
+    - Logistic
+        - Movement
+        - Stock
+        - Report
+    - Finance
+        - Sales Order
+        - Purchase Order
+        - Report
+    - Data
+        - Item
+        - Warehouse
+        - Customer
+        - Supplier
+    - User
+        - User
+        - Group
+
+status
+    - DRAFT (edit, delete)
+        - WAITING APPROVAL
+            - APPROVE
+                - VOID
+                - COMPLETE
+                    - VOID
+            - REJECT
+                - DRAFT
+        - CANCEL
+
+stock sales order = READY STOCK + APPROVED MOVEMENT STOCK
+once status reach completed, stock refresh doesnt work
+
+# Sales Order 
+    - table
+        [NEW SALES ORDER] button
+        - filter
+            Code   Customer     Due Date   User    Status
+        - data
+            No.     Code       Customer     Total Price      Due Date       Created Date    User     Status
+    - form
+        Customer Name
+        Shipping Address
+        Due Date
+        Created Date
+    
+        [ITEMS] [REFRESH STOCK]
+        No.     Item    Stock   Quantity    Price   Sub Total
+
+        Total Price
+
+        [SAVE]
+    - detail 
+        [STATUS]
+        Customer Name
+        Shipping Address
+        Due Date
+        Created Date
+        User
+        
+        [ITEMS] [REFRESH STOCK]
+        No.     Item    Stock   Quantity     Price   Sub Total
+
+        Total Price
+
+# Purchase Order 
+    - table
+        [NEW PURCHASE ORDER] button
+        - filter
+            Code   Supplier     Due Date   User    Status
+        - data
+            [Purchase Order]
+                No.     Code       Supplier     Total Price      Due Date       Created Date    User    Status
+
+            [Sales Order]
+                No.     Code       Stock    PO      Required   Due Date
+    - form
+        Supplier Name
+        Sales Order (multiple)
+        Warehouse
+        Due Date
+        Created Date
+
+        [SALES ORDER CODE] [REFRESH STOCK]
+        No.     Item    Stock   PO      Required    Quantity    Price   Sub Total
+
+        Total Price
+
+        [SAVE]
+    - detail 
+        [STATUS]
+        Supplier Name
+        Sales Order (multiple)
+        Warehouse
+        Due Date
+        Created Date
+        User
+        
+        [All Item] tab
+        No.     Item    Quantity    Price   Sub Total
+
+        Total Price
+
+        [SALES ORDER] tab
+            [SALES ORDER CODE] [REFRESH STOCK]
+            No.     Item    Stock   PO      Required    Quantity    Price   Sub Total
+
+        Total Price
+# Logistic
+    Type:
+        - SALES
+        - PURCHASE
+        - ADJUSTMENT
+
+    - Movement
+        - table
+            - filter
+                Code   Type     Warehouse   User    Status
+            - data
+                No.    Code       Type    Warehouse   User    Status
+
+        - form
+            Type
+            Purchase/Sales Order
+            Warehouse
+            Date
+            
+            [ITEMS] [REFRESH STOCK]
+            No.     Item Code   Item Name       In      Out     Stock
+
+            [SAVE]
+
+        - detail
+            [STATUS]
+            Type
+            Purchase/Sales Order
+            Warehouse
+            Date
+            User
+
+            [ITEMS]
+            No.     Item Code   Item Name       In      Out
+
+    - Stock
+        - table
+            - filter
+                item name   warehouse   month   year
+            - data
+                No.     Item Code   Item Name       Stock
+# Finance 
+    - sales order
+        - table
+            [NEW INVOICE] button
+            - filter
+                Invoice Number      Sales Order     Due Date   User    Status
+            - data
+                No.     Invoice Number       Sales Order     Total Amount    Total Paid     Due Date       User    Status
+        
+        - form
+            Invoice Number
+            Sales Order
+            Due Date
+
+        - detail
+            [STATUS]
+            Invoice Number
+            Sales Order
+            Due Date
+            Total Amount
+
+            [PAYMENT HISTORY] [ADD PAYMENT]
+            - table
+                - filter
+                    Ref Number
+                - data
+                    No.     Ref Number       Amount     Date       User    Status
+            
+            - detail
+                [STATUS]
+                Ref Number
+                Amount
+                Bank
+                Date Time
+                Document
+
+            - form
+                Ref Number
+                Amount
+                Bank
+                Date Time
+                Document
+
+    - purchase order
+        - table
+            [NEW INVOICE] button
+            - filter
+                Invoice Number      Purchase Order     Due Date   User    Status
+            - data
+                No.     Invoice Number       Purchase Order     Total Amount    Total Paid     Due Date       User    Status
+        
+        - form
+            Invoice Number
+            Purchase Order
+            Due Date
+
+        - detail
+            [STATUS]
+            Invoice Number
+            Purchase Order
+            Due Date
+            Total Amount
+
+            [PAYMENT HISTORY] [ADD PAYMENT]
+            - table
+                - filter
+                    Ref Number
+                - data
+                    No.     Ref Number       Amount     Date       User    Status
+            
+            - detail
+                [STATUS]
+                Ref Number
+                Amount
+                Bank
+                Date Time
+                Document
+
+            - form
+                Ref Number
+                Amount
+                Bank
+                Date Time
+                Document
