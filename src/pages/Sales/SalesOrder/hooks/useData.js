@@ -67,7 +67,7 @@ salesOrderData.map((salesOrder) => {
     progress: (
       <>
         <Tooltip
-          title={`${salesOrder.progress_stocks} fullfilled / ${salesOrder.progress_delivered} delivered`}
+          title={`${salesOrder.progress_stocks}% fullfilled / ${salesOrder.progress_delivered}% delivered`}
         >
           <Progress
             percent={salesOrder.progress_delivered}

@@ -5,7 +5,7 @@
         "supplier": {
             "name": "PT Global Service Indonesia",
             "phone_number": "+021 9964 964",
-            "shipping_address": "Jl. Raya Bekasi No.13910, RT.7/RW.1, Cakung Bar., Kec. Cakung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13910"
+            "address": "Jl. Raya Bekasi No.13910, RT.7/RW.1, Cakung Bar., Kec. Cakung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13910"
         },
         "warehouse": "Gudang Jakarta",
         "total_amount": "Rp 152.000.000",
@@ -37,20 +37,22 @@
                 "due_date": "20/01/2023",
                 "items": [
                     {
-                        "stock": "40",
-                        "purchase_order": "10",
-                        "sales_quantity": "150",
-                        "required_quantity": "100",
-                        "quantity": "100",
-                        "price": "7000"
+                        "name": "Clamp Omega 1 1/2\" - Plating",
+                        "stock": 40,
+                        "purchase_order": 10,
+                        "sales_quantity": 150,
+                        "required_quantity": 100,
+                        "quantity": 100,
+                        "price": 7000
                     },
                     {
-                        "stock": "40",
-                        "purchase_order": "10",
-                        "sales_quantity": "150",
-                        "required_quantity": "100",
-                        "quantity": "100",
-                        "price": "7000"
+                        "name": "Clamp Omega 1 1/2\" - Plating",
+                        "stock": 40,
+                        "purchase_order": 10,
+                        "sales_quantity": 150,
+                        "required_quantity": 100,
+                        "quantity": 100,
+                        "price": 7000
                     }
                 ]
             },
@@ -59,20 +61,22 @@
                 "due_date": "21/01/2023",
                 "items": [
                     {
-                        "stock": "40",
-                        "purchase_order": "10",
-                        "sales_quantity": "150",
-                        "required_quantity": "100",
-                        "quantity": "100",
-                        "price": "7000"
+                        "name": "Clamp Omega 1 1/2\" - Plating",
+                        "stock": 40,
+                        "purchase_order": 10,
+                        "sales_quantity": 150,
+                        "required_quantity": 100,
+                        "quantity": 100,
+                        "price": 7000
                     },
                     {
-                        "stock": "40",
-                        "purchase_order": "10",
-                        "sales_quantity": "150",
-                        "required_quantity": "100",
-                        "quantity": "100",
-                        "price": "7000"
+                        "name": "Clamp Omega 1 1/2\" - Plating",
+                        "stock": 40,
+                        "purchase_order": 10,
+                        "sales_quantity": 150,
+                        "required_quantity": 100,
+                        "quantity": 100,
+                        "price": 7000
                     }
                 ]
             }

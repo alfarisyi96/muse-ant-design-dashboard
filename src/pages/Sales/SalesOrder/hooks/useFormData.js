@@ -43,7 +43,6 @@ const useData = () => {
 
   useEffect(() => {
     setItemsData();
-    console.log(rawItems);
   }, [rawItems]);
 
   const addItem = () => {
@@ -74,8 +73,6 @@ const useData = () => {
   const deleteItem = (itemIndex) => {
     const array = [...rawItems];
     array.splice(itemIndex, 1);
-    console.log(itemIndex);
-    console.log(array);
     setRawItems(array);
   };
 
@@ -109,7 +106,7 @@ const useData = () => {
         ),
         sub_total: (item.quantity * item.price).toLocaleString("id-ID"),
         action: (
-          <Button type="danger" onClick={() => deleteItem(index)}>
+          <Button type="danger" size="small" onClick={() => deleteItem(index)}>
             delete
           </Button>
         ),

@@ -67,7 +67,7 @@ function SalesOrderDetail() {
               </Descriptions.Item>
               <Descriptions.Item label="Progress" span={1}>
                 <Tooltip
-                  title={`${detail.progress_stocks} fullfilled / ${detail.progress_delivered} delivered`}
+                  title={`${detail.progress_stocks}% fullfilled / ${detail.progress_delivered}% delivered`}
                 >
                   <Progress
                     percent={detail.progress_delivered}

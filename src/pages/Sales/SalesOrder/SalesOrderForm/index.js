@@ -8,15 +8,15 @@ import {
   Avatar,
   Input,
   Button,
+  Space,
 } from "antd";
 import moment from "moment";
 import useFormData from "../hooks/useFormData";
+import InputWrapper from "../../../../components/form/InputWrapper";
+import { Link } from "react-router-dom";
 
 const { Title } = Typography;
 
-const InputWrapper = (props) => {
-  return <div style={{ padding: "0px 20px 20px 0px" }}>{props.children}</div>;
-};
 function SalesOrderForm() {
   const { items, addItem, columns, detail, totalAmount } = useFormData();
 
@@ -94,6 +94,7 @@ function SalesOrderForm() {
           </div>
           <div style={{ padding: "24px" }}>
             <Button
+              size="small"
               type="primary"
               className="mb-2"
               onClick={hanldeAddItemClick}
@@ -107,6 +108,18 @@ function SalesOrderForm() {
                 </Title>
               </Descriptions.Item>
             </Descriptions>
+          </div>
+          <div style={{ padding: "24px" }}>
+            <Space>
+              <Button type="primary" size="large">
+                Save
+              </Button>
+              <Link to="/sales-order">
+                <Button type="default" size="large">
+                  Cancel
+                </Button>
+              </Link>
+            </Space>
           </div>
         </Card>
       </Col>

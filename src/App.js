@@ -19,6 +19,7 @@ import SalesOrderDetail from "./pages/Sales/SalesOrder/SalesOrderDetail";
 import PurchaseOrder from "./pages/Purchase/PurchaseOrder";
 import PurchaseOrderForm from "./pages/Purchase/PurchaseOrder/PurchaseOrderForm";
 import PurchaseOrderDetail from "./pages/Purchase/PurchaseOrder/PurchaseOrderDetail";
+import PurchaseOrderSalesDetail from "./pages/Purchase/PurchaseOrder/SalesOrderDetail";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route exact path="/purchase-order" component={PurchaseOrder} />
           <Route exact path="/purchase-order/form" component={PurchaseOrderForm} />
           <Route exact path="/purchase-order/detail/:id" component={PurchaseOrderDetail} />
+          <Route exact path="/purchase-order/sales-order/:id" component={PurchaseOrderSalesDetail} />
           
           <Route exact path="/tables" component={Tables} />
           <Route exact path="/billing" component={Billing} />

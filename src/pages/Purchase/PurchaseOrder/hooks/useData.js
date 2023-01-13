@@ -61,7 +61,7 @@ purchaseOrderData.map((purchaseOrder) => {
     total_amount: purchaseOrder.total_amount,
     progress: (
       <>
-        <Tooltip title={`${purchaseOrder.progress_received} received`}>
+        <Tooltip title={`${purchaseOrder.progress_received}% received`}>
           <Progress percent={purchaseOrder.progress_received} />
         </Tooltip>
       </>

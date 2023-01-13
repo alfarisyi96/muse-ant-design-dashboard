@@ -1,0 +1,28 @@
+.sales-order-items-wrapper {
+    margin-bottom: 36px;
+}
+
+.sales-order-items-wrapper:last-child {
+    margin-bottom: 0px;
+}
+
+.purchase-order-form-table tr td:nth-child(1) {
+    width: 350px;
+}
+
+.purchase-order-form-table tr td:nth-child(2),
+.purchase-order-form-table tr td:nth-child(3),
+.purchase-order-form-table tr td:nth-child(4),
+.purchase-order-form-table tr td:nth-child(5) {
+    width: 80px;
+}
+
+.purchase-order-form-table tr td:nth-child(6),
+.purchase-order-form-table tr td:nth-child(7) {
+    width: 150px;
+}
+
+.purchase-order-tabs .ant-tabs-nav-wrap {
+    padding-left: 24px;
+    padding-top: 24px;
+}
