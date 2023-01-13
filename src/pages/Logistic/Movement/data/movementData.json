@@ -1,0 +1,38 @@
+[
+    {
+        "id": "1",
+        "code": "M00001",
+        "type": "SALES",
+        "warehouse": "Gudang Jakarta",
+        "date": "12/01/2023",
+        "user": {
+            "name": "Michael John",
+            "email": "michael@mail.com"
+        },
+        "status": "APPROVED"
+    },
+    {
+        "id": "1",
+        "code": "M00002",
+        "type": "PURCHASE",
+        "warehouse": "Gudang Bekasi",
+        "date": "11/01/2023",
+        "user": {
+            "name": "Michael John",
+            "email": "michael@mail.com"
+        },
+        "status": "APPROVED"
+    },
+    {
+        "id": "1",
+        "code": "M00001",
+        "type": "ADJUSTMENT",
+        "warehouse": "Gudang Bekasi",
+        "date": "10/01/2023",
+        "user": {
+            "name": "Michael John",
+            "email": "michael@mail.com"
+        },
+        "status": "COMPLETED"
+    }
+]

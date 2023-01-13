@@ -2,11 +2,14 @@ import { Row, Col, Card, Table, Button, Tabs } from "antd";
 import { Link } from "react-router-dom";
 import useData from "./hooks/useData";
 import useSalesOrderData from "./hooks/useSalesOrderData";
+import usePurchaseOrderData from "./hooks/usePurchaseOrderData";
 
-function PurchaseOrder() {
+function StockMovement() {
   const { data, columns } = useData();
   const { data: salesOrderData, columns: salesOrderColumns } =
     useSalesOrderData();
+  const { data: purchaseOrderData, columns: purchaseOrderColumns } =
+    usePurchaseOrderData();
 
   return (
     <>
@@ -20,13 +23,13 @@ function PurchaseOrder() {
               extra={
                 <>
                   <Link to="/purchase-order/form">
-                    <Button type="primary">New Purchase Order</Button>
+                    <Button type="primary">New Stock Movement</Button>
                   </Link>
                 </>
               }
             >
               <Tabs className="purchase-order-tabs">
-                <Tabs.TabPane tab="Purchase Order" key="item-1">
+                <Tabs.TabPane tab="Stock Movement" key="item-1">
                   <div className="table-responsive">
                     <Table
                       columns={columns}
@@ -36,11 +39,27 @@ function PurchaseOrder() {
                     />
                   </div>
                 </Tabs.TabPane>
-                <Tabs.TabPane tab={`Sales Order (${salesOrderData.length})`} key="item-2">
+                <Tabs.TabPane
+                  tab={`Sales Order (${salesOrderData.length})`}
+                  key="item-2"
+                >
                   <div className="table-responsive">
                     <Table
                       columns={salesOrderColumns}
                       dataSource={salesOrderData}
+                      pagination={false}
+                      className="ant-border-space"
+                    />
+                  </div>
+                </Tabs.TabPane>
+                <Tabs.TabPane
+                  tab={`Purchase Order (${purchaseOrderData.length})`}
+                  key="item-2"
+                >
+                  <div className="table-responsive">
+                    <Table
+                      columns={purchaseOrderColumns}
+                      dataSource={purchaseOrderData}
                       pagination={false}
                       className="ant-border-space"
                     />
@@ -55,4 +74,4 @@ function PurchaseOrder() {
   );
 }
 
-export default PurchaseOrder;
+export default StockMovement;

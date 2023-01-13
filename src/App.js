@@ -29,6 +29,12 @@ import FinancePurchaseOrder from "./pages/Finance/PurchaseOrder";
 import FinancePurchaseOrderForm from "./pages/Finance/PurchaseOrder/PurchaseOrderForm";
 import FinancePurchaseOrderDetail from "./pages/Finance/PurchaseOrder/PurchaseOrderDetail";
 
+import StockMovement from "./pages/Logistic/Movement";
+import StockMovementForm from "./pages/Logistic/Movement/StockMovementForm";
+import StockMovementDetail from "./pages/Logistic/Movement/StockMovementDetail";
+import StockMovementSalesOrderDetail from "./pages/Logistic/Movement/SalesOrderDetail";
+import StockMovementPurchaseOrderDetail from "./pages/Logistic/Movement/PurchaseOrderDetail";
+
 function App() {
   return (
     <div className="App">
@@ -55,6 +61,12 @@ function App() {
           <Route exact path="/finance/purchase-order" component={FinancePurchaseOrder} />
           <Route exact path="/finance/purchase-order/form" component={FinancePurchaseOrderForm} />
           <Route exact path="/finance/purchase-order/detail/:id" component={FinancePurchaseOrderDetail} />
+
+          <Route exact path="/logistic/movement" component={StockMovement} />
+          <Route exact path="/logistic/movement/form" component={StockMovementForm} />
+          <Route exact path="/logistic/movement/detail/:id" component={StockMovementDetail} />
+          <Route exact path="/logistic/movement/sales/:id" component={StockMovementSalesOrderDetail} />
+          <Route exact path="/logistic/movement/purchase/:id" component={StockMovementPurchaseOrderDetail} />
           
           <Route exact path="/tables" component={Tables} />
           <Route exact path="/billing" component={Billing} />
