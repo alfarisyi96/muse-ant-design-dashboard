@@ -54,7 +54,7 @@ SalesOrderDetail.detail.items.map((item, index) => {
     purchase_order: item.purchase_order,
     quantity: (
       <>
-        {item.stock + item.purchase_order >= item.quantity ? (
+        {item.stock + item.purchase_order >= item.quantity - item.delivered ? (
           item.quantity
         ) : (
           <Text strong={true} type="danger">{item.quantity}</Text>

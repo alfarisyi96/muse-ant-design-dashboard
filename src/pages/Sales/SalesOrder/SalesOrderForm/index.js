@@ -7,6 +7,7 @@ import {
   Typography,
   Avatar,
   Input,
+  Button,
 } from "antd";
 import moment from "moment";
 import useFormData from "../hooks/useFormData";
@@ -17,7 +18,11 @@ const InputWrapper = (props) => {
   return <div style={{ padding: "0px 20px 20px 0px" }}>{props.children}</div>;
 };
 function SalesOrderForm() {
-  const { items, columns, detail, totalAmount } = useFormData();
+  const { items, addItem, columns, detail, totalAmount } = useFormData();
+
+  const hanldeAddItemClick = () => {
+    addItem();
+  };
 
   return (
     <Row gutter={[24, 0]}>
@@ -88,6 +93,13 @@ function SalesOrderForm() {
             />
           </div>
           <div style={{ padding: "24px" }}>
+            <Button
+              type="primary"
+              className="mb-2"
+              onClick={hanldeAddItemClick}
+            >
+              add item
+            </Button>
             <Descriptions layout="vertical">
               <Descriptions.Item label="Total Amount" span={1}>
                 <Title level={4}>

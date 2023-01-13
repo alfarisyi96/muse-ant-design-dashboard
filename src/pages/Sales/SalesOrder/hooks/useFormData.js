@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Input } from "antd";
+import { Input, Button } from "antd";
 import SalesOrderDetail from "../data/salesOrderDetail.json";
 
 const columns = [
@@ -29,6 +29,11 @@ const columns = [
     key: "sub_total",
     dataIndex: "sub_total",
   },
+  {
+    title: "",
+    key: "action",
+    dataIndex: "action",
+  },
 ];
 
 const useData = () => {
@@ -38,7 +43,22 @@ const useData = () => {
 
   useEffect(() => {
     setItemsData();
+    console.log(rawItems);
   }, [rawItems]);
+
+  const addItem = () => {
+    setRawItems((prev) => [
+      ...prev,
+      {
+        name: null,
+        stock: null,
+        purchase_order: null,
+        quantity: null,
+        delivered: null,
+        price: null,
+      },
+    ]);
+  };
 
   const onChange = (value, name, index) => {
     setRawItems((prev) => [
@@ -51,6 +71,14 @@ const useData = () => {
     ]);
   };
 
+  const deleteItem = (itemIndex) => {
+    const array = [...rawItems];
+    array.splice(itemIndex, 1);
+    console.log(itemIndex);
+    console.log(array);
+    setRawItems(array);
+  };
+
   const setItemsData = () => {
     const initialItems = [];
     let initialTotalAmount = 0;
@@ -58,21 +86,33 @@ const useData = () => {
     rawItems.map((item, index) => {
       initialItems.push({
         key: index,
-        name: <Input defaultValue={item.name} />,
+        name: (
+          <Input
+            value={item.name}
+            onChange={(e) => onChange(e.target.value, "name", index)}
+          />
+        ),
         stock: item.stock,
         quantity: (
           <Input
-            defaultValue={item.quantity}
+            type="number"
+            value={item.quantity}
             onChange={(e) => onChange(e.target.value, "quantity", index)}
           />
         ),
         price: (
           <Input
-            defaultValue={item.price}
+            type="number"
+            value={item.price}
             onChange={(e) => onChange(e.target.value, "price", index)}
           />
         ),
         sub_total: (item.quantity * item.price).toLocaleString("id-ID"),
+        action: (
+          <Button type="danger" onClick={() => deleteItem(index)}>
+            delete
+          </Button>
+        ),
       });
       initialTotalAmount += item.quantity * item.price;
     });
@@ -81,7 +121,13 @@ const useData = () => {
     setTotalAmount(initialTotalAmount);
   };
 
-  return { items, columns, totalAmount, detail: SalesOrderDetail.detail };
+  return {
+    items,
+    addItem,
+    columns,
+    totalAmount,
+    detail: SalesOrderDetail.detail,
+  };
 };
 
 export default useData;
