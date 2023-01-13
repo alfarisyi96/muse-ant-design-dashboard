@@ -2,31 +2,26 @@ import { useState } from "react";
 import { Avatar, Typography, Dropdown, Tooltip, Progress, Tag } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import purchaseOrderData from "../data/purchaseOrderData.json";
+import invoiceData from "../data/invoiceData.json";
 import { STATUS_PROPS } from "../constants";
 
 const { Title } = Typography;
 
 const columns = [
   {
-    title: "CODE",
-    dataIndex: "code",
-    key: "code",
+    title: "INVOICE NUMBER",
+    dataIndex: "invoice_number",
+    key: "invoice_number",
   },
   {
-    title: "SUPPLIER",
-    dataIndex: "supplier",
-    key: "supplier",
+    title: "PURCHASE ORDER",
+    dataIndex: "purchase_order_code",
+    key: "purchase_order_code",
   },
   {
     title: "TOTAL AMOUNT",
     key: "total_amount",
     dataIndex: "total_amount",
-  },
-  {
-    title: "PROGRESS",
-    key: "progress",
-    dataIndex: "progress",
   },
   {
     title: "DUE DATE",
@@ -47,27 +42,25 @@ const columns = [
 
 const initialData = [];
 
-purchaseOrderData.map((purchaseOrder) => {
+invoiceData.map((purchaseOrder) => {
   initialData.push({
     key: purchaseOrder.id,
-    code: (
-      <Link to="/purchase-order/detail/detail">
+    invoice_number: (
+      <Link to="/finance/purchase-order/detail/1">
         <span>
-          <b>{purchaseOrder.code}</b>
+          <b>{purchaseOrder.invoice_number}</b>
         </span>
       </Link>
     ),
-    supplier: purchaseOrder.supplier,
-    total_amount: purchaseOrder.total_amount,
-    progress: (
-      <>
-        <Tooltip title={`${purchaseOrder.progress_received}% received`}>
-          <Progress percent={purchaseOrder.progress_received} />
-        </Tooltip>
-      </>
+    purchase_order_code: (
+      <Link to="/purchase-order/detail/1">
+        <span>
+          <b>{purchaseOrder.purchase_order_code}</b>
+        </span>
+      </Link>
     ),
+    total_amount: purchaseOrder.total_amount,
     due_date: purchaseOrder.due_date,
-    created_date: purchaseOrder.created_date,
     user: (
       <>
         <Avatar.Group>

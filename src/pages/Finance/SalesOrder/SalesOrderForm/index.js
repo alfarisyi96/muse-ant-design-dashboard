@@ -6,59 +6,37 @@ import {
   Table,
   Typography,
   Avatar,
-  Input,
-  Button,
   Space,
+  Button,
+  Input,
 } from "antd";
-import moment from "moment";
-import useFormData from "../hooks/useFormData";
+import useDetailData from "../hooks/useDetailData";
 import InputWrapper from "../../../../components/form/InputWrapper";
 import { Link } from "react-router-dom";
-
 const { Title } = Typography;
 
 function SalesOrderForm() {
-  const { items, addItem, columns, detail, totalAmount } = useFormData();
-
-  const hanldeAddItemClick = () => {
-    addItem();
-  };
+  const { items, columns, detail, totalAmount } = useDetailData();
 
   return (
     <Row gutter={[24, 0]}>
       <Col xs="24" xl={24}>
-        <Card
-          bordered={false}
-          className="tablespace mb-24"
-          title={<Title level={4}>New Sales Order</Title>}
-        >
+        <Card bordered={false} className="tablespace mb-24" title="New Invoice">
           <div style={{ padding: "24px" }}>
             <Descriptions layout="vertical">
               <Descriptions.Item
-                label="Customer Name"
+                label="Sales Order"
                 contentStyle={{ display: "inline-block" }}
               >
                 <InputWrapper>
-                  <Input defaultValue={detail.customer.name} />
+                  <Input defaultValue={detail.code} />
                 </InputWrapper>
               </Descriptions.Item>
-              <Descriptions.Item
-                label="Telephone"
-                contentStyle={{ display: "inline-block" }}
-              >
-                <InputWrapper>
-                  <Input defaultValue={detail.customer.phone_number} />
-                </InputWrapper>
+              <Descriptions.Item label="Customer Name">
+                {detail.customer.name}
               </Descriptions.Item>
-              <Descriptions.Item
-                label="Shipping Address"
-                contentStyle={{ display: "inline-block" }}
-              >
-                <InputWrapper>
-                  <Input.TextArea
-                    defaultValue={detail.customer.shipping_address}
-                  />
-                </InputWrapper>
+              <Descriptions.Item label="Address">
+                {detail.customer.shipping_address}
               </Descriptions.Item>
               <Descriptions.Item
                 label="Due Date"
@@ -69,7 +47,7 @@ function SalesOrderForm() {
                 </InputWrapper>
               </Descriptions.Item>
               <Descriptions.Item label="Created Date">
-                {moment(new Date()).format("DD/MM/YYYY")}
+                {detail.created_date}
               </Descriptions.Item>
               <Descriptions.Item label="User">
                 <Avatar.Group>
@@ -78,6 +56,15 @@ function SalesOrderForm() {
                     <p>{detail.user.email}</p>
                   </div>
                 </Avatar.Group>
+              </Descriptions.Item>
+              <Descriptions.Item
+                span={1}
+                label="Notes"
+                contentStyle={{ display: "inline-block" }}
+              >
+                <InputWrapper>
+                  <Input.TextArea defaultValue={""} />
+                </InputWrapper>
               </Descriptions.Item>
             </Descriptions>
           </div>
@@ -93,14 +80,6 @@ function SalesOrderForm() {
             />
           </div>
           <div style={{ padding: "24px" }}>
-            <Button
-              size="small"
-              type="primary"
-              className="mb-2"
-              onClick={hanldeAddItemClick}
-            >
-              add item
-            </Button>
             <Descriptions layout="vertical">
               <Descriptions.Item label="Total Amount" span={1}>
                 <Title level={4}>
@@ -114,7 +93,7 @@ function SalesOrderForm() {
               <Button type="primary" size="large">
                 Save
               </Button>
-              <Link to="/sales-order">
+              <Link to="/finance/sales-order">
                 <Button type="default" size="large">
                   Cancel
                 </Button>

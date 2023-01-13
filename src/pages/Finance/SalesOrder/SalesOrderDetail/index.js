@@ -6,14 +6,15 @@ import {
   Table,
   Typography,
   Avatar,
-  Tooltip,
-  Progress,
   Tag,
+  Space,
+  Button,
   Dropdown,
 } from "antd";
 import useDetailData from "../hooks/useDetailData";
 import { STATUS_PROPS } from "../constants";
 import { DownOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 const { Title } = Typography;
 
@@ -27,10 +28,21 @@ function SalesOrderDetail() {
           bordered={false}
           className="tablespace mb-24"
           title={
-            <div style={{justifyContent: "space-between", flexDirection: "row", display: "flex", alignItems: "center"}}>
-              <Title level={4}>Sales Order - S00001</Title>
+            <div
+              style={{
+                justifyContent: "space-between",
+                flexDirection: "row",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <Title level={4}>Sales Order Invoice - INV00001</Title>
               <Dropdown overlay={STATUS_PROPS[detail.status].menu}>
-                <Tag color={STATUS_PROPS[detail.status].color} size="large" style={{padding: "4px 8px"}}>
+                <Tag
+                  color={STATUS_PROPS[detail.status].color}
+                  size="large"
+                  style={{ padding: "4px 8px" }}
+                >
                   {STATUS_PROPS[detail.status].label}
                   {detail.status !== "VOID" ? (
                     <DownOutlined style={{ marginLeft: "1rem" }} />
@@ -42,16 +54,22 @@ function SalesOrderDetail() {
         >
           <div style={{ padding: "24px" }}>
             <Descriptions layout="vertical">
+              <Descriptions.Item
+                label="Sales Order"
+                contentStyle={{ display: "inline-block" }}
+              >
+                {detail.code}
+              </Descriptions.Item>
               <Descriptions.Item label="Customer Name">
                 {detail.customer.name}
               </Descriptions.Item>
-              <Descriptions.Item label="Telephone">
-                {detail.customer.phone_number}
-              </Descriptions.Item>
-              <Descriptions.Item label="Shipping Address">
+              <Descriptions.Item label="Address">
                 {detail.customer.shipping_address}
               </Descriptions.Item>
-              <Descriptions.Item label="Due Date">
+              <Descriptions.Item
+                label="Due Date"
+                contentStyle={{ display: "inline-block" }}
+              >
                 {detail.due_date}
               </Descriptions.Item>
               <Descriptions.Item label="Created Date">
@@ -65,16 +83,11 @@ function SalesOrderDetail() {
                   </div>
                 </Avatar.Group>
               </Descriptions.Item>
-              <Descriptions.Item label="Progress" span={1}>
-                <Tooltip
-                  title={`${detail.progress_stocks}% fullfilled / ${detail.progress_delivered}% delivered`}
-                >
-                  <Progress
-                    percent={detail.progress_delivered}
-                    success={{ percent: detail.progress_stocks }}
-                  />
-                </Tooltip>
-              </Descriptions.Item>
+              <Descriptions.Item
+                span={1}
+                label="Notes"
+                contentStyle={{ display: "inline-block" }}
+              ></Descriptions.Item>
             </Descriptions>
           </div>
           <div style={{ padding: "0px 24px" }}>
@@ -96,6 +109,18 @@ function SalesOrderDetail() {
                 </Title>
               </Descriptions.Item>
             </Descriptions>
+          </div>
+          <div style={{ padding: "24px" }}>
+            <Space>
+              <Button type="primary" size="large">
+                Generate Invoice
+              </Button>
+              <Link to="/finance/sales-order">
+                <Button type="default" size="large">
+                  Back
+                </Button>
+              </Link>
+            </Space>
           </div>
         </Card>
       </Col>

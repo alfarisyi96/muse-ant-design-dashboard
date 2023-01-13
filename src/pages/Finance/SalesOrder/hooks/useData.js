@@ -1,16 +1,9 @@
 import { useState } from "react";
-import {
-  Avatar,
-  Typography,
-  Dropdown,
-  Tooltip,
-  Progress,
-  Tag,
-} from "antd";
+import { Avatar, Typography, Dropdown, Tooltip, Progress, Tag } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import salesOrderData from "../data/salesOrderData.json";
-import { STATUS_FINANCE_PROPS } from "../constants";
+import invoiceData from "../data/invoiceData.json";
+import { STATUS_PROPS } from "../constants";
 
 const { Title } = Typography;
 
@@ -18,27 +11,17 @@ const columns = [
   {
     title: "INVOICE NUMBER",
     dataIndex: "invoice_number",
-    key: "code",
+    key: "invoice_number",
   },
   {
     title: "SALES ORDER",
-    dataIndex: "sales_order_coder",
-    key: "sales_order_coder",
+    dataIndex: "sales_order_code",
+    key: "sales_order_code",
   },
   {
     title: "TOTAL AMOUNT",
     key: "total_amount",
     dataIndex: "total_amount",
-  },
-  {
-    title: "TOTAL PAID",
-    key: "total_amount",
-    dataIndex: "total_amount",
-  },
-  {
-    title: "PROGRESS",
-    key: "progress_payment",
-    dataIndex: "progress_payment",
   },
   {
     title: "DUE DATE",
@@ -59,30 +42,25 @@ const columns = [
 
 const initialData = [];
 
-salesOrderData.map((salesOrder) => {
+invoiceData.map((salesOrder) => {
   initialData.push({
     key: salesOrder.id,
-    code: (
-      <Link to="/sales-order/detail/detail">
-        <span><b>{salesOrder.code}</b></span>
+    invoice_number: (
+      <Link to="/finance/sales-order/detail/1">
+        <span>
+          <b>{salesOrder.invoice_number}</b>
+        </span>
       </Link>
     ),
-    customer: salesOrder.customer,
-    total_amount: salesOrder.total_amount,
-    progress: (
-      <>
-        <Tooltip
-          title={`${salesOrder.progress_stocks}% fullfilled / ${salesOrder.progress_delivered}% delivered`}
-        >
-          <Progress
-            percent={salesOrder.progress_delivered}
-            success={{ percent: salesOrder.progress_stocks }}
-          />
-        </Tooltip>
-      </>
+    sales_order_code: (
+      <Link to="/sales-order/detail/1">
+        <span>
+          <b>{salesOrder.sales_order_code}</b>
+        </span>
+      </Link>
     ),
+    total_amount: salesOrder.total_amount,
     due_date: salesOrder.due_date,
-    created_date: salesOrder.created_date,
     user: (
       <>
         <Avatar.Group>
@@ -95,9 +73,9 @@ salesOrderData.map((salesOrder) => {
     ),
     status: (
       <>
-        <Dropdown overlay={STATUS_FINANCE_PROPS[salesOrder.status].menu}>
-          <Tag color={STATUS_FINANCE_PROPS[salesOrder.status].color}>
-            {STATUS_FINANCE_PROPS[salesOrder.status].label}
+        <Dropdown overlay={STATUS_PROPS[salesOrder.status].menu}>
+          <Tag color={STATUS_PROPS[salesOrder.status].color}>
+            {STATUS_PROPS[salesOrder.status].label}
             {salesOrder.status !== "VOID" ? (
               <DownOutlined style={{ marginLeft: "1rem" }} />
             ) : null}

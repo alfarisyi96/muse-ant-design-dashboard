@@ -1,6 +1,7 @@
 [
     {
         "id": "1",
+        "sales_order_code": "S00001",
         "invoice_number": "INV00001",
         "customer": "PT Global Service Indonesia",
         "total_amount": "Rp 120.000.000",
@@ -12,45 +13,48 @@
             "name": "Michael John",
             "email": "michael@mail.com"
         },
-        "status": "ON_PROGRESS"
+        "status": "APPROVED"
     },
     {
         "id": "2",
+        "sales_order_code": "S00002",
         "invoice_number": "INV00002",
         "customer": "PT Alfa Solusi Kreatif",
         "total_amount": "Rp 100.000.000",
         "total_paid": "Rp 80.000.000",
-        "progress_payment": "80",
+        "progress_payment": 80,
         "due_date": "15/01/2023",
         "created_date": "10/01/2023",
         "user": {
             "name": "Michael John",
             "email": "michael@mail.com"
         },
-        "status": "ON_PROGRESS"
+        "status": "APPROVED"
     },
     {
         "id": "3",
+        "sales_order_code": "S00003",
         "invoice_number": "INV00003",
         "customer": "PT Alfa Solusi Kreatif",
         "total_amount": "Rp 200.000.000",
         "total_paid": "Rp 100.000.000",
-        "progress_payment": "50",
+        "progress_payment": 50,
         "due_date": "16/01/2023",
         "created_date": "10/01/2023",
         "user": {
             "name": "Michael John",
             "email": "michael@mail.com"
         },
-        "status": "ON_PROGRESS"
+        "status": "APPROVED"
     },
     {
         "id": "4",
+        "sales_order_code": "S00004",
         "customer": "PT Alfa Solusi Kreatif",
         "invoice_number": "INV00002",
         "total_amount": "Rp 100.000.000",
         "total_paid": "Rp 100.000.000",
-        "progress_payment": "100",
+        "progress_payment": 100,
         "due_date": "15/01/2023",
         "created_date": "10/01/2023",
         "user": {
@@ -61,11 +65,12 @@
     },
     {
         "id": "5",
+        "sales_order_code": "S00005",
         "customer": "PT Tiket Global Network",
         "invoice_number": "INV00005",
         "total_amount": "Rp 320.000.000",
         "total_paid": "Rp 320.000.000",
-        "progress_payment": "100",
+        "progress_payment": 100,
         "due_date": "21/01/2023",
         "created_date": "10/01/2023",
         "user": {
@@ -76,11 +81,12 @@
     },
     {
         "id": "6",
+        "sales_order_code": "S00006",
         "customer": "PT United Tractors",
         "invoice_number": "INV00006",
         "total_amount": "Rp 530.000.000",
         "total_paid": "Rp 530.000.000",
-        "progress_payment": "100",
+        "progress_payment": 100,
         "due_date": "24/01/2023",
         "created_date": "10/01/2023",
         "user": {

@@ -16,8 +16,8 @@ function SalesOrder() {
               title="Sales Order"
               extra={
                 <>
-                  <Link to="/sales-order/form">
-                    <Button type="primary">New Sales Order</Button>
+                  <Link to="/finance/sales-order/form">
+                    <Button type="primary">New Invoice</Button>
                   </Link>
                 </>
               }

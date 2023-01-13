@@ -55,4 +55,17 @@ const STATUS_PROPS = {
   },
 };
 
-export { STATUS_PROPS };
+const STATUS_FINANCE_PROPS = {
+  ON_PROGRESS: {
+    label: "ON PROGRESS",
+    color: "grey",
+    menu: <></>,
+  },
+  COMPLETED: {
+    label: "COMPLETED",
+    color: "green",
+    menu: <></>,
+  },
+};
+
+export { STATUS_PROPS, STATUS_FINANCE_PROPS };
