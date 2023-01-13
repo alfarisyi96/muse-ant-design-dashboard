@@ -1,121 +1,105 @@
-import { Form, Input, Button, Select, Row, Col, Card, Space, Table } from "antd";
 import {
-  Cascader,
-  DatePicker,
-  InputNumber,
-  Radio,
-  Switch,
-  TreeSelect,
+  Descriptions,
+  Row,
+  Col,
+  Card,
+  Table,
+  Typography,
+  Avatar,
+  Input,
 } from "antd";
-import React, { useState } from "react";
+import moment from "moment";
 import useFormData from "../hooks/useFormData";
 
-const SalesOrderForm = () => {
-  const { data, columns } = useFormData();
-  const [componentSize, setComponentSize] = useState("default");
-  const onFormLayoutChange = ({ size }) => {
-    setComponentSize(size);
-  };
+const { Title } = Typography;
+
+const InputWrapper = (props) => {
+  return <div style={{ padding: "0px 20px 20px 0px" }}>{props.children}</div>;
+};
+function SalesOrderForm() {
+  const { items, columns, detail, totalAmount } = useFormData();
+
   return (
     <Row gutter={[24, 0]}>
       <Col xs="24" xl={24}>
         <Card
           bordered={false}
-          className="criclebox tablespace mb-24"
-          title="Sales Order Form"
+          className="tablespace mb-24"
+          title={<Title level={4}>New Sales Order</Title>}
         >
-          <div class="form-container">
-            <Form
-              labelCol={{
-                span: 4,
-              }}
-              wrapperCol={{
-                span: 14,
-              }}
-              layout="horizontal"
-              initialValues={{
-                size: componentSize,
-              }}
-              onValuesChange={onFormLayoutChange}
-              size={componentSize}
-            >
-              <Form.Item label="Form Size" name="size">
-                <Radio.Group>
-                  <Radio.Button value="small">Small</Radio.Button>
-                  <Radio.Button value="default">Default</Radio.Button>
-                  <Radio.Button value="large">Large</Radio.Button>
-                </Radio.Group>
-              </Form.Item>
-              <Form.Item label="Input">
-                <Input />
-              </Form.Item>
-              <Form.Item label="Select">
-                <Select>
-                  <Select.Option value="demo">Demo</Select.Option>
-                </Select>
-              </Form.Item>
-              <Form.Item label="TreeSelect">
-                <TreeSelect
-                  treeData={[
-                    {
-                      title: "Light",
-                      value: "light",
-                      children: [
-                        {
-                          title: "Bamboo",
-                          value: "bamboo",
-                        },
-                      ],
-                    },
-                  ]}
-                />
-              </Form.Item>
-              <Form.Item label="Cascader">
-                <Cascader
-                  options={[
-                    {
-                      value: "zhejiang",
-                      label: "Zhejiang",
-                      children: [
-                        {
-                          value: "hangzhou",
-                          label: "Hangzhou",
-                        },
-                      ],
-                    },
-                  ]}
-                />
-              </Form.Item>
-              <Form.Item label="DatePicker">
-                <DatePicker />
-              </Form.Item>
-              <Form.Item label="InputNumber">
-                <InputNumber />
-              </Form.Item>
-              <Form.Item label="Switch" valuePropName="checked">
-                <Switch />
-              </Form.Item>
-              <div className="table-responsive">
-                <Table
-                  columns={columns}
-                  dataSource={data}
-                  pagination={false}
-                  className="ant-border-space"
-                />
-              </div>
-              <Form.Item>
-                <Space>
-                  <Button className="mr-1" type="primary">
-                    Save
-                  </Button>
-                  <Button type="default">Close</Button>
-                </Space>
-              </Form.Item>
-            </Form>
+          <div style={{ padding: "24px" }}>
+            <Descriptions layout="vertical">
+              <Descriptions.Item
+                label="Customer Name"
+                contentStyle={{ display: "inline-block" }}
+              >
+                <InputWrapper>
+                  <Input defaultValue={detail.customer.name} />
+                </InputWrapper>
+              </Descriptions.Item>
+              <Descriptions.Item
+                label="Telephone"
+                contentStyle={{ display: "inline-block" }}
+              >
+                <InputWrapper>
+                  <Input defaultValue={detail.customer.phone_number} />
+                </InputWrapper>
+              </Descriptions.Item>
+              <Descriptions.Item
+                label="Shipping Address"
+                contentStyle={{ display: "inline-block" }}
+              >
+                <InputWrapper>
+                  <Input.TextArea
+                    defaultValue={detail.customer.shipping_address}
+                  />
+                </InputWrapper>
+              </Descriptions.Item>
+              <Descriptions.Item
+                label="Due Date"
+                contentStyle={{ display: "inline-block" }}
+              >
+                <InputWrapper>
+                  <Input defaultValue={detail.due_date} />
+                </InputWrapper>
+              </Descriptions.Item>
+              <Descriptions.Item label="Created Date">
+                {moment(new Date()).format("DD/MM/YYYY")}
+              </Descriptions.Item>
+              <Descriptions.Item label="User">
+                <Avatar.Group>
+                  <div className="avatar-info">
+                    <Title level={5}>{detail.user.name}</Title>
+                    <p>{detail.user.email}</p>
+                  </div>
+                </Avatar.Group>
+              </Descriptions.Item>
+            </Descriptions>
+          </div>
+          <div style={{ padding: "0px 24px" }}>
+            <Title level={5}>Items</Title>
+          </div>
+          <div className="table-responsive">
+            <Table
+              columns={columns}
+              dataSource={items}
+              pagination={false}
+              className="ant-border-space"
+            />
+          </div>
+          <div style={{ padding: "24px" }}>
+            <Descriptions layout="vertical">
+              <Descriptions.Item label="Total Amount" span={1}>
+                <Title level={4}>
+                  Rp {totalAmount.toLocaleString("id-ID")}
+                </Title>
+              </Descriptions.Item>
+            </Descriptions>
           </div>
         </Card>
       </Col>
     </Row>
   );
-};
+}
+
 export default SalesOrderForm;

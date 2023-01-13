@@ -1,241 +1,87 @@
-import {
-  Button,
-  Avatar,
-  Typography,
-  Menu,
-  Dropdown,
-  Tooltip,
-  Progress,
-} from "antd";
-import { DownOutlined } from "@ant-design/icons";
-
-const { Title } = Typography;
-
-const menu = (
-  <Menu>
-    <Menu.Item>APPROVE</Menu.Item>
-    <Menu.Item danger>REJECT</Menu.Item>
-    <Menu.Item danger>VOID</Menu.Item>
-  </Menu>
-);
+import { useState, useEffect } from "react";
+import { Input } from "antd";
+import SalesOrderDetail from "../data/salesOrderDetail.json";
 
 const columns = [
   {
-    title: "CODE",
-    dataIndex: "code",
-    key: "code",
+    title: "ITEM",
+    dataIndex: "name",
+    key: "name",
+    width: "40%",
   },
   {
-    title: "CUSTOMER",
-    dataIndex: "customer",
-    key: "customer",
+    title: "STOCK",
+    dataIndex: "stock",
+    key: "stock",
   },
   {
-    title: "TOTAL AMOUNT",
-    key: "total_amount",
-    dataIndex: "total_amount",
+    title: "QUANTITY",
+    key: "quantity",
+    dataIndex: "quantity",
   },
   {
-    title: "PROGRESS",
-    key: "progress",
-    dataIndex: "progress",
+    title: "PRICE",
+    key: "price",
+    dataIndex: "price",
   },
   {
-    title: "DUE DATE",
-    key: "due_date",
-    dataIndex: "due_date",
-  },
-  {
-    title: "CREATED DATE",
-    key: "created_date",
-    dataIndex: "created_date",
-  },
-  {
-    title: "STATUS",
-    key: "status",
-    dataIndex: "status",
-  },
-  {
-    title: "USER",
-    key: "user",
-    dataIndex: "user",
+    title: "SUB TOTAL",
+    key: "sub_total",
+    dataIndex: "sub_total",
   },
 ];
 
 const useData = () => {
-  const data = [
-    {
-      key: "1",
-      code: "S00001",
-      customer: "PT Nayaka Pratama",
-      total_amount: "Rp 152.000.000",
-      progress: (
-        <>
-          <Tooltip title="3 done / 3 in progress / 4 to do">
-            <Progress percent={60} success={{ percent: 30 }} />
-          </Tooltip>
-        </>
-      ),
-      due_date: "20/01/2023",
-      created_date: "20/01/2023",
-      user: (
-        <>
-          <Avatar.Group>
-            <div className="avatar-info">
-              <Title level={5}>Michael John</Title>
-              <p>michael@mail.com</p>
-            </div>
-          </Avatar.Group>{" "}
-        </>
-      ),
-      status: (
-        <>
-          <Dropdown overlay={menu} trigger={["click"]}>
-            <Button type="primary" size="small">
-              APPROVED <DownOutlined style={{ marginLeft: "1rem" }} />
-            </Button>
-          </Dropdown>
-        </>
-      ),
-    },
-    {
-      key: "1",
-      code: "S00001",
-      customer: "PT Nayaka Pratama",
-      total_amount: "Rp 152.000.000",
-      due_date: "20/01/2023",
-      created_date: "20/01/2023",
-      user: (
-        <>
-          <Avatar.Group>
-            <div className="avatar-info">
-              <Title level={5}>Michael John</Title>
-              <p>michael@mail.com</p>
-            </div>
-          </Avatar.Group>{" "}
-        </>
-      ),
-      status: (
-        <>
-          <Dropdown overlay={menu}>
-            <Button type="primary" size="small">
-              APPROVED <DownOutlined style={{ marginLeft: "1rem" }} />
-            </Button>
-          </Dropdown>
-        </>
-      ),
-    },
-    {
-      key: "2",
-      code: "S00001",
-      customer: "PT Nayaka Pratama",
-      total_amount: "Rp 152.000.000",
-      due_date: "20/01/2023",
-      created_date: "20/01/2023",
-      user: (
-        <>
-          <Avatar.Group>
-            <div className="avatar-info">
-              <Title level={5}>Michael John</Title>
-              <p>michael@mail.com</p>
-            </div>
-          </Avatar.Group>{" "}
-        </>
-      ),
-      status: (
-        <>
-          <Dropdown overlay={menu}>
-            <Button type="primary" size="small">
-              APPROVED <DownOutlined style={{ marginLeft: "1rem" }} />
-            </Button>
-          </Dropdown>
-        </>
-      ),
-    },
-    {
-      key: "3",
-      code: "S00001",
-      customer: "PT Nayaka Pratama",
-      total_amount: "Rp 152.000.000",
-      due_date: "20/01/2023",
-      created_date: "20/01/2023",
-      user: (
-        <>
-          <Avatar.Group>
-            <div className="avatar-info">
-              <Title level={5}>Michael John</Title>
-              <p>michael@mail.com</p>
-            </div>
-          </Avatar.Group>{" "}
-        </>
-      ),
-      status: (
-        <>
-          <Dropdown overlay={menu}>
-            <Button type="primary" size="small">
-              APPROVED <DownOutlined style={{ marginLeft: "1rem" }} />
-            </Button>
-          </Dropdown>
-        </>
-      ),
-    },
-    {
-      key: "4",
-      code: "S00001",
-      customer: "PT Nayaka Pratama",
-      total_amount: "Rp 152.000.000",
-      due_date: "20/01/2023",
-      created_date: "20/01/2023",
-      user: (
-        <>
-          <Avatar.Group>
-            <div className="avatar-info">
-              <Title level={5}>Michael John</Title>
-              <p>michael@mail.com</p>
-            </div>
-          </Avatar.Group>{" "}
-        </>
-      ),
-      status: (
-        <>
-          <Dropdown overlay={menu}>
-            <Button type="primary" size="small">
-              APPROVED <DownOutlined style={{ marginLeft: "1rem" }} />
-            </Button>
-          </Dropdown>
-        </>
-      ),
-    },
-    {
-      key: "5",
-      code: "S00001",
-      customer: "PT Nayaka Pratama",
-      total_amount: "Rp 152.000.000",
-      due_date: "20/01/2023",
-      created_date: "20/01/2023",
-      user: (
-        <>
-          <Avatar.Group>
-            <div className="avatar-info">
-              <Title level={5}>Michael John</Title>
-              <p>michael@mail.com</p>
-            </div>
-          </Avatar.Group>{" "}
-        </>
-      ),
-      status: (
-        <>
-          <Dropdown overlay={menu}>
-            <Button type="primary" size="small">
-              APPROVED <DownOutlined style={{ marginLeft: "1rem" }} />
-            </Button>
-          </Dropdown>
-        </>
-      ),
-    },
-  ];
+  const [totalAmount, setTotalAmount] = useState(0);
+  const [rawItems, setRawItems] = useState(SalesOrderDetail.detail.items);
+  const [items, setItems] = useState([]);
 
-  return { data, columns };
+  useEffect(() => {
+    setItemsData();
+  }, [rawItems]);
+
+  const onChange = (value, name, index) => {
+    setRawItems((prev) => [
+      ...prev.map((item, itemIndex) => {
+        if (index === itemIndex) {
+          item[name] = value;
+        }
+        return item;
+      }),
+    ]);
+  };
+
+  const setItemsData = () => {
+    const initialItems = [];
+    let initialTotalAmount = 0;
+
+    rawItems.map((item, index) => {
+      initialItems.push({
+        key: index,
+        name: <Input defaultValue={item.name} />,
+        stock: item.stock,
+        quantity: (
+          <Input
+            defaultValue={item.quantity}
+            onChange={(e) => onChange(e.target.value, "quantity", index)}
+          />
+        ),
+        price: (
+          <Input
+            defaultValue={item.price}
+            onChange={(e) => onChange(e.target.value, "price", index)}
+          />
+        ),
+        sub_total: (item.quantity * item.price).toLocaleString("id-ID"),
+      });
+      initialTotalAmount += item.quantity * item.price;
+    });
+
+    setItems(initialItems);
+    setTotalAmount(initialTotalAmount);
+  };
+
+  return { items, columns, totalAmount, detail: SalesOrderDetail.detail };
 };
 
 export default useData;

@@ -1,26 +1,18 @@
 import { useState } from "react";
 import {
-  Button,
   Avatar,
   Typography,
-  Menu,
   Dropdown,
   Tooltip,
   Progress,
   Tag,
 } from "antd";
 import { DownOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 import salesOrderData from "../data/salesOrderData.json";
+import { STATUS_PROPS } from "../constants";
 
 const { Title } = Typography;
-
-const menu = (
-  <Menu>
-    <Menu.Item>APPROVE</Menu.Item>
-    <Menu.Item danger>REJECT</Menu.Item>
-    <Menu.Item danger>VOID</Menu.Item>
-  </Menu>
-);
 
 const columns = [
   {
@@ -60,65 +52,16 @@ const columns = [
   },
 ];
 
-const STATUS_PROPS = {
-  DRAFT: {
-    label: "DRAFT",
-    color: "grey",
-    menu: (
-      <Menu>
-        <Menu.Item>SUBMIT</Menu.Item>
-      </Menu>
-    ),
-  },
-  WAITING_APPROVAL: {
-    label: "WAITING FOR APPROVAL",
-    color: "orange",
-    menu: (
-      <Menu>
-        <Menu.Item>APPROVE</Menu.Item>
-        <Menu.Item danger>REJECT</Menu.Item>
-      </Menu>
-    ),
-  },
-  APPROVED: {
-    label: "APPROVED",
-    color: "blue",
-    menu: (
-      <Menu>
-        <Menu.Item danger>VOID</Menu.Item>
-      </Menu>
-    ),
-  },
-  REJECTED: {
-    label: "REJECTED",
-    color: "red",
-    menu: (
-      <Menu>
-        <Menu.Item danger>DRAFT</Menu.Item>
-      </Menu>
-    ),
-  },
-  COMPLETED: {
-    label: "COMPLETED",
-    color: "green",
-    menu: (
-      <Menu>
-        <Menu.Item danger>VOID</Menu.Item>
-      </Menu>
-    ),
-  },
-  VOID: {
-    label: "VOID",
-    color: "grey",
-    menu: <></>,
-  },
-};
 const initialData = [];
 
 salesOrderData.map((salesOrder) => {
   initialData.push({
     key: salesOrder.id,
-    code: salesOrder.code,
+    code: (
+      <Link to="/sales-order/detail/detail">
+        <span><b>{salesOrder.code}</b></span>
+      </Link>
+    ),
     customer: salesOrder.customer,
     total_amount: salesOrder.total_amount,
     progress: (
@@ -150,7 +93,7 @@ salesOrderData.map((salesOrder) => {
         <Dropdown overlay={STATUS_PROPS[salesOrder.status].menu}>
           <Tag color={STATUS_PROPS[salesOrder.status].color}>
             {STATUS_PROPS[salesOrder.status].label}
-            {salesOrder.status !== 'VOID' ? (
+            {salesOrder.status !== "VOID" ? (
               <DownOutlined style={{ marginLeft: "1rem" }} />
             ) : null}
           </Tag>

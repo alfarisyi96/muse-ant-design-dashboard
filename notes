@@ -65,7 +65,7 @@ once status reach completed, stock refresh doesnt work
         User
         
         [ITEMS] [REFRESH STOCK]
-        No.     Item    Stock   PO      Required    Quantity     Price   Sub Total
+        No.     Item    Stock   PO      Quantity    Delivered     Price   Sub Total
 
         Total Amount
 
