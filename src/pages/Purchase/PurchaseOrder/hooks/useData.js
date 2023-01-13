@@ -1,12 +1,5 @@
 import { useState } from "react";
-import {
-  Avatar,
-  Typography,
-  Dropdown,
-  Tooltip,
-  Progress,
-  Tag,
-} from "antd";
+import { Avatar, Typography, Dropdown, Tooltip, Progress, Tag } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import purchaseOrderData from "../data/purchaseOrderData.json";
@@ -59,20 +52,17 @@ purchaseOrderData.map((purchaseOrder) => {
     key: purchaseOrder.id,
     code: (
       <Link to="/purchase-order/detail/detail">
-        <span><b>{purchaseOrder.code}</b></span>
+        <span>
+          <b>{purchaseOrder.code}</b>
+        </span>
       </Link>
     ),
-    customer: purchaseOrder.customer,
+    supplier: purchaseOrder.supplier,
     total_amount: purchaseOrder.total_amount,
     progress: (
       <>
-        <Tooltip
-          title={`${purchaseOrder.progress_stocks} fullfilled / ${purchaseOrder.progress_delivered} delivered`}
-        >
-          <Progress
-            percent={purchaseOrder.progress_delivered}
-            success={{ percent: purchaseOrder.progress_stocks }}
-          />
+        <Tooltip title={`${purchaseOrder.progress_received} received`}>
+          <Progress percent={purchaseOrder.progress_received} />
         </Tooltip>
       </>
     ),

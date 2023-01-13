@@ -35,11 +35,11 @@ function PurchaseOrderForm() {
           <div style={{ padding: "24px" }}>
             <Descriptions layout="vertical">
               <Descriptions.Item
-                label="Customer Name"
+                label="Supplier Name"
                 contentStyle={{ display: "inline-block" }}
               >
                 <InputWrapper>
-                  <Input defaultValue={detail.customer.name} />
+                  <Input defaultValue={detail.supplier.name} />
                 </InputWrapper>
               </Descriptions.Item>
               <Descriptions.Item
@@ -47,7 +47,7 @@ function PurchaseOrderForm() {
                 contentStyle={{ display: "inline-block" }}
               >
                 <InputWrapper>
-                  <Input defaultValue={detail.customer.phone_number} />
+                  <Input defaultValue={detail.supplier.phone_number} />
                 </InputWrapper>
               </Descriptions.Item>
               <Descriptions.Item
@@ -56,7 +56,7 @@ function PurchaseOrderForm() {
               >
                 <InputWrapper>
                   <Input.TextArea
-                    defaultValue={detail.customer.shipping_address}
+                    defaultValue={detail.supplier.shipping_address}
                   />
                 </InputWrapper>
               </Descriptions.Item>

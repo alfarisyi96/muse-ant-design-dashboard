@@ -42,14 +42,14 @@ function PurchaseOrderDetail() {
         >
           <div style={{ padding: "24px" }}>
             <Descriptions layout="vertical">
-              <Descriptions.Item label="Customer Name">
-                {detail.customer.name}
+              <Descriptions.Item label="Supplier Name">
+                {detail.supplier.name}
               </Descriptions.Item>
               <Descriptions.Item label="Telephone">
-                {detail.customer.phone_number}
+                {detail.supplier.phone_number}
               </Descriptions.Item>
               <Descriptions.Item label="Shipping Address">
-                {detail.customer.shipping_address}
+                {detail.supplier.shipping_address}
               </Descriptions.Item>
               <Descriptions.Item label="Due Date">
                 {detail.due_date}
