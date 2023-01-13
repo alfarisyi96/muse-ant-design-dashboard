@@ -1,17 +1,13 @@
 {
     "detail": {
         "id": "1",
-        "code": "S00001",
-        "customer": {
-            "name": "PT Global Service Indonesia",
-            "phone_number": "+021 9964 964",
-            "shipping_address": "Jl. Raya Bekasi No.13910, RT.7/RW.1, Cakung Bar., Kec. Cakung, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13910"
-        },
-        "total_amount": "Rp 152.000.000",
-        "progress_stocks": "40",
-        "progress_delivered": "70",
-        "due_date": "20/01/2023",
-        "created_date": "10/01/2023",
+        "code": "M00001",
+        "type": "PURCHASE",
+        "warehouse": "Gudang Jakarta",
+        "sales_order_code": "S00001",
+        "purchase_order_code": "P00001",
+        "date": "10/01/2023",
+        "notes": "",
         "user": {
             "name": "Michael John",
             "email": "michael@mail.com"
@@ -20,19 +16,15 @@
         "items": [
             {
                 "name": "Clamp Omega 1 1/2\" - Plating",
-                "stock": 30,
-                "purchase_order": 0,
-                "quantity": 100,
-                "delivered": 70,
-                "price": 7000
+                "stock_before": 0,
+                "in": 30,
+                "out": 0
             },
             {
                 "name": "Clamp One Hole 3/4\" - HDG",
-                "stock": 10,
-                "purchase_order": 50,
-                "quantity": 150,
-                "delivered": 0,
-                "price": 15000
+                "stock_before": 40,
+                "in": 30,
+                "out": 0
             }
         ]
     }

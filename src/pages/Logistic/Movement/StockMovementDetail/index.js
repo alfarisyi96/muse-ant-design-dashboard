@@ -18,7 +18,7 @@ import { DownOutlined } from "@ant-design/icons";
 const { Title } = Typography;
 
 function SalesOrderDetail() {
-  const { items, columns, detail, totalAmount } = useDetailData();
+  const { items, columns, detail } = useDetailData();
 
   return (
     <Row gutter={[24, 0]}>
@@ -27,10 +27,21 @@ function SalesOrderDetail() {
           bordered={false}
           className="tablespace mb-24"
           title={
-            <div style={{justifyContent: "space-between", flexDirection: "row", display: "flex", alignItems: "center"}}>
-              <Title level={4}>Sales Order - S00001</Title>
+            <div
+              style={{
+                justifyContent: "space-between",
+                flexDirection: "row",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <Title level={4}>Stock Movement - {detail.code}</Title>
               <Dropdown overlay={STATUS_PROPS[detail.status].menu}>
-                <Tag color={STATUS_PROPS[detail.status].color} size="large" style={{padding: "4px 8px"}}>
+                <Tag
+                  color={STATUS_PROPS[detail.status].color}
+                  size="large"
+                  style={{ padding: "4px 8px" }}
+                >
                   {STATUS_PROPS[detail.status].label}
                   {detail.status !== "VOID" ? (
                     <DownOutlined style={{ marginLeft: "1rem" }} />
@@ -42,20 +53,18 @@ function SalesOrderDetail() {
         >
           <div style={{ padding: "24px" }}>
             <Descriptions layout="vertical">
-              <Descriptions.Item label="Customer Name">
-                {detail.customer.name}
+              <Descriptions.Item label="Type">{detail.type}</Descriptions.Item>
+              <Descriptions.Item label="Purchase Order">
+                {detail.purchase_order_code}
               </Descriptions.Item>
-              <Descriptions.Item label="Telephone">
-                {detail.customer.phone_number}
+              <Descriptions.Item label="Date">
+                {detail.date}
               </Descriptions.Item>
-              <Descriptions.Item label="Shipping Address">
-                {detail.customer.shipping_address}
+              <Descriptions.Item label="Notes">
+                {detail.notes}
               </Descriptions.Item>
-              <Descriptions.Item label="Due Date">
-                {detail.due_date}
-              </Descriptions.Item>
-              <Descriptions.Item label="Created Date">
-                {detail.created_date}
+              <Descriptions.Item label="Warehouse">
+                {detail.warehouse}
               </Descriptions.Item>
               <Descriptions.Item label="User">
                 <Avatar.Group>
@@ -64,16 +73,6 @@ function SalesOrderDetail() {
                     <p>{detail.user.email}</p>
                   </div>
                 </Avatar.Group>
-              </Descriptions.Item>
-              <Descriptions.Item label="Progress" span={1}>
-                <Tooltip
-                  title={`${detail.progress_stocks}% fullfilled / ${detail.progress_delivered}% delivered`}
-                >
-                  <Progress
-                    percent={detail.progress_delivered}
-                    success={{ percent: detail.progress_stocks }}
-                  />
-                </Tooltip>
               </Descriptions.Item>
             </Descriptions>
           </div>
@@ -87,15 +86,6 @@ function SalesOrderDetail() {
               pagination={false}
               className="ant-border-space"
             />
-          </div>
-          <div style={{ padding: "24px" }}>
-            <Descriptions layout="vertical">
-              <Descriptions.Item label="Total Amount" span={1}>
-                <Title level={4}>
-                  Rp {totalAmount.toLocaleString("id-ID")}
-                </Title>
-              </Descriptions.Item>
-            </Descriptions>
           </div>
         </Card>
       </Col>

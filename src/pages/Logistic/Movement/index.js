@@ -22,7 +22,7 @@ function StockMovement() {
               title="Purchase Order"
               extra={
                 <>
-                  <Link to="/purchase-order/form">
+                  <Link to="/logistic/movement/form">
                     <Button type="primary">New Stock Movement</Button>
                   </Link>
                 </>
@@ -54,7 +54,7 @@ function StockMovement() {
                 </Tabs.TabPane>
                 <Tabs.TabPane
                   tab={`Purchase Order (${purchaseOrderData.length})`}
-                  key="item-2"
+                  key="item-3"
                 >
                   <div className="table-responsive">
                     <Table

@@ -51,13 +51,13 @@ movementData.map((movement) => {
   initialData.push({
     key: movement.id,
     code: (
-      <Link to="/movement/detail/detail">
+      <Link to="/logistic/movement/detail/detail">
         <span><b>{movement.code}</b></span>
       </Link>
     ),
     type: movement.type,
     warehouse: movement.warehouse,
-    date: movement.due_date,
+    date: movement.date,
     user: (
       <>
         <Avatar.Group>

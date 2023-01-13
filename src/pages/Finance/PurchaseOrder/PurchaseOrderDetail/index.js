@@ -36,7 +36,7 @@ function PurchaseOrderDetail() {
                 alignItems: "center",
               }}
             >
-              <Title level={4}>purchase Order Invoice - INV00001</Title>
+              <Title level={4}>Purchase Order Invoice - INV00001</Title>
               <Dropdown overlay={STATUS_PROPS[detail.status].menu}>
                 <Tag
                   color={STATUS_PROPS[detail.status].color}
@@ -64,7 +64,7 @@ function PurchaseOrderDetail() {
                 {detail.supplier.name}
               </Descriptions.Item>
               <Descriptions.Item label="Address">
-                {detail.supplier.shipping_address}
+                {detail.supplier.address}
               </Descriptions.Item>
               <Descriptions.Item
                 label="Due Date"

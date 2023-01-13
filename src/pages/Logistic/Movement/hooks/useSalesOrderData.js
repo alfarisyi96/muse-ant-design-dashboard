@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Tooltip, Progress } from "antd";
 import { Link } from "react-router-dom";
 import salesOrderData from "../data/salesOrderData.json";
 
@@ -9,24 +10,9 @@ const columns = [
     key: "code",
   },
   {
-    title: "STOCK",
-    key: "stock",
-    dataIndex: "stock",
-  },
-  {
-    title: "PO",
-    key: "purchase_order",
-    dataIndex: "purchase_order",
-  },
-  {
-    title: "SALES QUANTITY",
-    key: "sales_quantity",
-    dataIndex: "sales_quantity",
-  },
-  {
-    title: "REQUIRED QUANTITY",
-    key: "required_quantity",
-    dataIndex: "required_quantity",
+    title: "PROGRESS",
+    key: "progress",
+    dataIndex: "progress",
   },
   {
     title: "DUE DATE",
@@ -41,16 +27,17 @@ salesOrderData.map((salesOrder) => {
   initialData.push({
     key: salesOrder.id,
     code: (
-      <Link to="/purchase-order/sales-order/detail">
+      <Link to="/logistic/movement/sales/detail">
         <span>
           <b>{salesOrder.code}</b>
         </span>
       </Link>
     ),
-    stock: salesOrder.stock,
-    po: salesOrder.po,
-    sales_quantity: salesOrder.sales_quantity,
-    required_quantity: salesOrder.required_quantity,
+    progress: (
+      <Tooltip title={`${salesOrder.progress}% delivered`}>
+        <Progress percent={salesOrder.progress} />
+      </Tooltip>
+    ),
     due_date: salesOrder.due_date,
   });
 });

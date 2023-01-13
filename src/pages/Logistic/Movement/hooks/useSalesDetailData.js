@@ -23,9 +23,9 @@ const columns = [
     dataIndex: "sales_quantity",
   },
   {
-    title: "REQUIRED QUANTITY",
-    key: "required_quantity",
-    dataIndex: "required_quantity",
+    title: "DELIVERED QUANTITY",
+    key: "delivered_quantity",
+    dataIndex: "delivered_quantity",
   },
 ];
 
@@ -38,7 +38,7 @@ SalesOrderDetail.detail.items.map((item, index) => {
     stock: item.stock,
     purchase_order: item.purchase_order,
     sales_quantity: item.sales_quantity,
-    required_quantity: item.required_quantity,
+    delivered_quantity: item.delivered_quantity,
   });
 });
 

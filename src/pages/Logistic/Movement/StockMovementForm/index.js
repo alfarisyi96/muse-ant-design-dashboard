@@ -9,6 +9,7 @@ import {
   Input,
   Button,
   Space,
+  Select,
 } from "antd";
 import moment from "moment";
 import useFormData from "../hooks/useFormData";
@@ -18,10 +19,14 @@ import { Link } from "react-router-dom";
 const { Title } = Typography;
 
 function SalesOrderForm() {
-  const { items, addItem, columns, detail, totalAmount } = useFormData();
+  const { items, addItem, columns, type, setType, detail } = useFormData();
 
   const hanldeAddItemClick = () => {
     addItem();
+  };
+
+  const onChangeType = (value) => {
+    setType(value);
   };
 
   return (
@@ -30,46 +35,111 @@ function SalesOrderForm() {
         <Card
           bordered={false}
           className="tablespace mb-24"
-          title={<Title level={4}>New Sales Order</Title>}
+          title={<Title level={4}>New Stock Movement</Title>}
         >
           <div style={{ padding: "24px" }}>
             <Descriptions layout="vertical">
               <Descriptions.Item
-                label="Customer Name"
+                label="Type"
                 contentStyle={{ display: "inline-block" }}
               >
                 <InputWrapper>
-                  <Input defaultValue={detail.customer.name} />
+                  <Select
+                    size="large"
+                    style={{ width: "100%" }}
+                    value={type}
+                    onChange={onChangeType}
+                    options={[
+                      {
+                        value: "ADJUSTMENT",
+                        label: "ADJUSTMENT",
+                      },
+                      {
+                        value: "SALES",
+                        label: "SALES",
+                      },
+                      {
+                        value: "PURCHASE",
+                        label: "PURCHASE",
+                      },
+                    ]}
+                  ></Select>
                 </InputWrapper>
               </Descriptions.Item>
-              <Descriptions.Item
-                label="Telephone"
-                contentStyle={{ display: "inline-block" }}
-              >
-                <InputWrapper>
-                  <Input defaultValue={detail.customer.phone_number} />
-                </InputWrapper>
-              </Descriptions.Item>
-              <Descriptions.Item
-                label="Shipping Address"
-                contentStyle={{ display: "inline-block" }}
-              >
-                <InputWrapper>
-                  <Input.TextArea
-                    defaultValue={detail.customer.shipping_address}
-                  />
-                </InputWrapper>
-              </Descriptions.Item>
-              <Descriptions.Item
-                label="Due Date"
-                contentStyle={{ display: "inline-block" }}
-              >
-                <InputWrapper>
-                  <Input defaultValue={detail.due_date} />
-                </InputWrapper>
-              </Descriptions.Item>
-              <Descriptions.Item label="Created Date">
+              {type === "SALES" ? (
+                <Descriptions.Item
+                  label="Sales Order"
+                  contentStyle={{ display: "inline-block" }}
+                >
+                  <InputWrapper>
+                    <Select
+                      size="large"
+                      style={{ width: "100%" }}
+                      options={[
+                        {
+                          value: "S00001",
+                          label: "S00001",
+                        },
+                        {
+                          value: "S00002",
+                          label: "S00002",
+                        },
+                        {
+                          value: "S00003",
+                          label: "S00003",
+                        },
+                      ]}
+                    ></Select>
+                  </InputWrapper>
+                </Descriptions.Item>
+              ) : type === "PURCHASE" ? (
+                <Descriptions.Item
+                  label="Purchase Order"
+                  contentStyle={{ display: "inline-block" }}
+                >
+                  <InputWrapper>
+                    <Select
+                      size="large"
+                      style={{ width: "100%" }}
+                      options={[
+                        {
+                          value: "P00001",
+                          label: "P00001",
+                        },
+                        {
+                          value: "P00002",
+                          label: "P00002",
+                        },
+                        {
+                          value: "P00003",
+                          label: "P00003",
+                        },
+                      ]}
+                    ></Select>
+                  </InputWrapper>
+                </Descriptions.Item>
+              ) : (
+                <Descriptions.Item></Descriptions.Item>
+              )}
+
+              <Descriptions.Item label="Date">
                 {moment(new Date()).format("DD/MM/YYYY")}
+              </Descriptions.Item>
+              <Descriptions.Item
+                label="Notes"
+                contentStyle={{ display: "inline-block" }}
+              >
+                <InputWrapper>
+                  <Input.TextArea defaultValue={""} />
+                </InputWrapper>
+              </Descriptions.Item>
+              <Descriptions.Item
+                label="Warehouse"
+                contentStyle={{ display: "inline-block" }}
+              >
+                <InputWrapper>
+                  <Input defaultValue={"Gudang Jakarta"} />
+                </InputWrapper>
               </Descriptions.Item>
               <Descriptions.Item label="User">
                 <Avatar.Group>
@@ -101,13 +171,6 @@ function SalesOrderForm() {
             >
               add item
             </Button>
-            <Descriptions layout="vertical">
-              <Descriptions.Item label="Total Amount" span={1}>
-                <Title level={4}>
-                  Rp {totalAmount.toLocaleString("id-ID")}
-                </Title>
-              </Descriptions.Item>
-            </Descriptions>
           </div>
           <div style={{ padding: "24px" }}>
             <Space>

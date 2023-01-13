@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SalesOrderDetail from "../data/salesOrderDetail.json";
+import PurchaseOrderDetail from "../data/purchaseOrderDetail.json";
 
 const columns = [
   {
@@ -8,44 +8,32 @@ const columns = [
     key: "name",
   },
   {
-    title: "STOCK",
-    dataIndex: "stock",
-    key: "stock",
+    title: "QUANTITY",
+    dataIndex: "quantity",
+    key: "quantity",
   },
   {
-    title: "PO",
-    key: "purchase_order",
-    dataIndex: "purchase_order",
-  },
-  {
-    title: "SALES QUANTITY",
-    key: "sales_quantity",
-    dataIndex: "sales_quantity",
-  },
-  {
-    title: "REQUIRED QUANTITY",
-    key: "required_quantity",
-    dataIndex: "required_quantity",
+    title: "RECEIVED QUANTITY",
+    key: "received_quantity",
+    dataIndex: "received_quantity",
   },
 ];
 
 const initialItems = [];
 
-SalesOrderDetail.detail.items.map((item, index) => {
+PurchaseOrderDetail.detail.items.map((item, index) => {
   initialItems.push({
     key: index,
     name: item.name,
-    stock: item.stock,
-    purchase_order: item.purchase_order,
-    sales_quantity: item.sales_quantity,
-    required_quantity: item.required_quantity,
+    quantity: item.quantity,
+    received_quantity: item.received_quantity,
   });
 });
 
 const useDetailData = () => {
   const [items, setItems] = useState(initialItems);
 
-  return { items, columns, detail: SalesOrderDetail.detail };
+  return { items, columns, detail: PurchaseOrderDetail.detail };
 };
 
 export default useDetailData;

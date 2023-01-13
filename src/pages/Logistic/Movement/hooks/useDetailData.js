@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Typography } from "antd";
-import SalesOrderDetail from "../data/salesOrderDetail.json";
+import movementDetail from "../data/movementDetail.json";
 
 const { Text } = Typography;
 
@@ -11,67 +11,47 @@ const columns = [
     key: "name",
   },
   {
-    title: "STOCK",
-    dataIndex: "stock",
+    title: "STOCK BEFORE",
+    dataIndex: "stock_before",
+    key: "stock_before",
+  },
+  {
+    title: "IN",
+    dataIndex: "in",
+    key: "in",
+  },
+  {
+    title: "OUT",
+    dataIndex: "out",
+    key: "out",
+  },
+  {
+    title: "LAST STOCK",
     key: "stock",
-  },
-  {
-    title: "PO",
-    key: "purchase_order",
-    dataIndex: "purchase_order",
-  },
-  {
-    title: "QUANTITY",
-    key: "quantity",
-    dataIndex: "quantity",
-  },
-  {
-    title: "DELIVERED",
-    key: "delivered",
-    dataIndex: "delivered",
-  },
-  {
-    title: "PRICE",
-    key: "price",
-    dataIndex: "price",
-  },
-  {
-    title: "SUB TOTAL",
-    key: "sub_total",
-    dataIndex: "sub_total",
+    dataIndex: "stock",
   },
 ];
 
 const initialItems = [];
-let initialTotalAmount = 0;
 
-SalesOrderDetail.detail.items.map((item, index) => {
+movementDetail.detail.items.map((item, index) => {
   initialItems.push({
     key: index,
     name: item.name,
-    stock: item.stock,
-    delivered: item.delivered,
-    purchase_order: item.purchase_order,
-    quantity: (
-      <>
-        {item.stock + item.purchase_order >= item.quantity - item.delivered ? (
-          item.quantity
-        ) : (
-          <Text strong={true} type="danger">{item.quantity}</Text>
-        )}
-      </>
-    ),
-    price: item.price.toLocaleString("id-ID"),
-    sub_total: <b>{(item.quantity * item.price).toLocaleString("id-ID")}</b>,
+    stock_before: item.stock_before,
+    in: item.in,
+    out: item.out,
+    stock:
+      parseFloat(item.stock_before) +
+      parseFloat(item.in) -
+      parseFloat(item.out),
   });
-  initialTotalAmount += item.quantity * item.price;
 });
 
 const useDetailData = () => {
-  const [totalAmount, setTotalAmount] = useState(initialTotalAmount);
   const [items, setItems] = useState(initialItems);
 
-  return { items, columns, totalAmount, detail: SalesOrderDetail.detail };
+  return { items, columns, detail: movementDetail.detail };
 };
 
 export default useDetailData;

@@ -32,13 +32,13 @@ function SalesOrderDetail() {
                 alignItems: "center",
               }}
             >
-              <Title level={4}>Sales Order - S00001</Title>
+              <Title level={4}>Sales Order - {detail.code}</Title>
             </div>
           }
           extra={
             <>
-              <Link to="/purchase-order/form">
-                <Button type="primary">New Purchase Order</Button>
+              <Link to="/logistic/movement/form">
+                <Button type="primary">New Stock Movement</Button>
               </Link>
             </>
           }
@@ -49,12 +49,8 @@ function SalesOrderDetail() {
                 {detail.due_date}
               </Descriptions.Item>
               <Descriptions.Item label="Progress" span={1}>
-                <Tooltip
-                  title={`${detail.progress_stocks}% fullfilled`}
-                >
-                  <Progress
-                    percent={detail.progress_stocks}
-                  />
+                <Tooltip title={`${detail.progress_delivered}% delivered`}>
+                  <Progress percent={detail.progress_delivered} />
                 </Tooltip>
               </Descriptions.Item>
             </Descriptions>

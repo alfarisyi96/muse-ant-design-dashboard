@@ -2,41 +2,25 @@
     {
         "id": "1",
         "code": "S00001",
-        "stock": "20",
-        "purchase_order": "30",
-        "sales_quantity": "100",
-        "required_quantity": "50",
-        "due_date": "12/01/2023",
-        "created_date": "10/01/2023"
+        "progress": 50,
+        "due_date": "12/01/2023"
     },
     {
         "id": "2",
         "code": "S00002",
-        "stock": "40",
-        "purchase_order": "10",
-        "sales_quantity": "150",
-        "required_quantity": "100",
-        "due_date": "15/01/2023",
-        "created_date": "10/01/2023"
+        "progress": 20,
+        "due_date": "15/01/2023"
     },
     {
         "id": "3",
         "code": "S00003",
-        "stock": "0",
-        "purchase_order": "0",
-        "sales_quantity": "220",
-        "required_quantity": "220",
-        "due_date": "20/01/2023",
-        "created_date": "10/01/2023"
+        "progress": 70,
+        "due_date": "20/01/2023"
     },
     {
         "id": "4",
         "code": "S00004",
-        "stock": "100",
-        "purchase_order": "0",
-        "sales_quantity": "150",
-        "required_quantity": "50",
-        "due_date": "25/01/2023",
-        "created_date": "10/01/2023"
+        "progress": 80,
+        "due_date": "25/01/2023"
     }
 ]

@@ -168,7 +168,7 @@ function Sidenav({ color }) {
             <span className="label">Dashboard</span>
           </NavLink>
         </Menu.Item>
-        <Menu.Item className="menu-item-header" key="5">
+        <Menu.Item className="menu-item-header" key="transaction">
           Transaction
         </Menu.Item>
         <Menu.SubMenu
@@ -272,7 +272,7 @@ function Sidenav({ color }) {
             </NavLink>
           </Menu.Item>
         </Menu.SubMenu>
-        <Menu.Item className="menu-item-header" key="5">
+        <Menu.Item className="menu-item-header" key="master data">
           Master Data
         </Menu.Item>
         <Menu.SubMenu

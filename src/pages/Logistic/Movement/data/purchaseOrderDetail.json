@@ -1,0 +1,21 @@
+{
+    "detail": {
+        "id": "1",
+        "code": "P00001",
+        "warehouse": "Gudang Jakarta",
+        "progress_received": "40",
+        "due_date": "20/01/2023",
+        "items": [
+            {
+                "name": "Clamp Omega 1 1/2\" - Plating",
+                "quantity": 100,
+                "received_quantity": 70
+            },
+            {
+                "name": "Clamp One Hole 3/4\" - HDG",
+                "quantity": 150,
+                "received_quantity": 0
+            }
+        ]
+    }
+}

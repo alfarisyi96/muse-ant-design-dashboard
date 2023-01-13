@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Input, Button } from "antd";
-import SalesOrderDetail from "../data/salesOrderDetail.json";
+import SalesOrderDetail from "../data/movementDetail.json";
 
 const columns = [
   {
@@ -10,24 +10,24 @@ const columns = [
     width: "40%",
   },
   {
-    title: "STOCK",
-    dataIndex: "stock",
+    title: "STOCK BEFORE",
+    dataIndex: "stock_before",
+    key: "stock_before",
+  },
+  {
+    title: "IN",
+    dataIndex: "in",
+    key: "in",
+  },
+  {
+    title: "OUT",
+    dataIndex: "out",
+    key: "out",
+  },
+  {
+    title: "LAST STOCK",
     key: "stock",
-  },
-  {
-    title: "QUANTITY",
-    key: "quantity",
-    dataIndex: "quantity",
-  },
-  {
-    title: "PRICE",
-    key: "price",
-    dataIndex: "price",
-  },
-  {
-    title: "SUB TOTAL",
-    key: "sub_total",
-    dataIndex: "sub_total",
+    dataIndex: "stock",
   },
   {
     title: "",
@@ -40,21 +40,24 @@ const useData = () => {
   const [totalAmount, setTotalAmount] = useState(0);
   const [rawItems, setRawItems] = useState(SalesOrderDetail.detail.items);
   const [items, setItems] = useState([]);
+  const [type, setType] = useState("ADJUSTMENT");
 
   useEffect(() => {
     setItemsData();
   }, [rawItems]);
+
+  useEffect(() => {
+    setItemsData();
+  }, [type]);
 
   const addItem = () => {
     setRawItems((prev) => [
       ...prev,
       {
         name: null,
-        stock: null,
-        purchase_order: null,
-        quantity: null,
-        delivered: null,
-        price: null,
+        stock_before: 0,
+        in: 0,
+        out: 0,
       },
     ]);
   };
@@ -81,6 +84,9 @@ const useData = () => {
     let initialTotalAmount = 0;
 
     rawItems.map((item, index) => {
+      const inStock = type === "SALES" ? 0 : item.in;
+      const outStock = type === "PURCHASE" ? 0 : item.out;
+
       initialItems.push({
         key: index,
         name: (
@@ -89,22 +95,27 @@ const useData = () => {
             onChange={(e) => onChange(e.target.value, "name", index)}
           />
         ),
-        stock: item.stock,
-        quantity: (
+        stock_before: item.stock_before,
+        in: (
           <Input
             type="number"
-            value={item.quantity}
-            onChange={(e) => onChange(e.target.value, "quantity", index)}
+            value={inStock}
+            disabled={type === "SALES"}
+            onChange={(e) => onChange(e.target.value, "in", index)}
           />
         ),
-        price: (
+        out: (
           <Input
             type="number"
-            value={item.price}
-            onChange={(e) => onChange(e.target.value, "price", index)}
+            value={outStock}
+            disabled={type === "PURCHASE"}
+            onChange={(e) => onChange(e.target.value, "out", index)}
           />
         ),
-        sub_total: (item.quantity * item.price).toLocaleString("id-ID"),
+        stock:
+          parseFloat(item.stock_before) +
+          parseFloat(inStock) -
+          parseFloat(outStock),
         action: (
           <Button type="danger" size="small" onClick={() => deleteItem(index)}>
             delete
@@ -123,6 +134,8 @@ const useData = () => {
     addItem,
     columns,
     totalAmount,
+    type,
+    setType,
     detail: SalesOrderDetail.detail,
   };
 };

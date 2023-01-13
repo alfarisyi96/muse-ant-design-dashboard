@@ -2,85 +2,25 @@
     {
         "id": "1",
         "code": "P00001",
-        "supplier": "PT Global Service Indonesia",
-        "total_amount": "Rp 152.000.000",
-        "progress_received": "0",
-        "due_date": "20/01/2023",
-        "created_date": "10/01/2023",
-        "user": {
-            "name": "Michael John",
-            "email": "michael@mail.com"
-        },
-        "status": "DRAFT"
+        "progress": 80,
+        "due_date": "12/01/2023"
     },
     {
         "id": "2",
         "code": "P00002",
-        "supplier": "PT Alfa Solusi Kreatif",
-        "total_amount": "Rp 120.000.000",
-        "progress_received": "0",
-        "due_date": "15/01/2023",
-        "created_date": "10/01/2023",
-        "user": {
-            "name": "Michael John",
-            "email": "michael@mail.com"
-        },
-        "status": "WAITING_APPROVAL"
+        "progress": 40,
+        "due_date": "15/01/2023"
     },
     {
         "id": "3",
         "code": "P00003",
-        "supplier": "PT Global Service Indonesia",
-        "total_amount": "Rp 240.000.000",
-        "progress_received": "50",
-        "due_date": "20/01/2023",
-        "created_date": "10/01/2023",
-        "user": {
-            "name": "Michael John",
-            "email": "michael@mail.com"
-        },
-        "status": "APPROVED"
+        "progress": 30,
+        "due_date": "20/01/2023"
     },
     {
         "id": "4",
         "code": "P00004",
-        "supplier": "PT United Tractors",
-        "total_amount": "Rp 152.000.000",
-        "progress_received": "0",
-        "due_date": "25/01/2023",
-        "created_date": "10/01/2023",
-        "user": {
-            "name": "Michael John",
-            "email": "michael@mail.com"
-        },
-        "status": "REJECTED"
-    },
-    {
-        "id": "5",
-        "code": "P00005",
-        "supplier": "PT Tiket Global Network",
-        "total_amount": "Rp 321.000.000",
-        "progress_received": "100",
-        "due_date": "21/01/2023",
-        "created_date": "10/01/2023",
-        "user": {
-            "name": "Michael John",
-            "email": "michael@mail.com"
-        },
-        "status": "COMPLETED"
-    },
-    {
-        "id": "6",
-        "code": "P00006",
-        "supplier": "PT United Tractors",
-        "total_amount": "Rp 152.000.000",
-        "progress_received": "20",
-        "due_date": "24/01/2023",
-        "created_date": "10/01/2023",
-        "user": {
-            "name": "Michael John",
-            "email": "michael@mail.com"
-        },
-        "status": "VOID"
+        "progress": 60,
+        "due_date": "25/01/2023"
     }
 ]

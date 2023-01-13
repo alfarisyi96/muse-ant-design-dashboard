@@ -9,13 +9,13 @@ import {
   Progress,
   Button,
 } from "antd";
-import useSalesDetailData from "../hooks/useSalesDetailData";
+import usePurchaseDetailData from "../hooks/usePurchaseDetailData";
 import { Link } from "react-router-dom";
 
 const { Title } = Typography;
 
-function SalesOrderDetail() {
-  const { items, columns, detail } = useSalesDetailData();
+function PurchaseOrderDetail() {
+  const { items, columns, detail } = usePurchaseDetailData();
 
   return (
     <Row gutter={[24, 0]}>
@@ -32,13 +32,13 @@ function SalesOrderDetail() {
                 alignItems: "center",
               }}
             >
-              <Title level={4}>Sales Order - S00001</Title>
+              <Title level={4}>Purchase Order - {detail.code}</Title>
             </div>
           }
           extra={
             <>
-              <Link to="/purchase-order/form">
-                <Button type="primary">New Purchase Order</Button>
+              <Link to="/logistic/movement/form">
+                <Button type="primary">New Stock Movement</Button>
               </Link>
             </>
           }
@@ -48,13 +48,12 @@ function SalesOrderDetail() {
               <Descriptions.Item label="Due Date">
                 {detail.due_date}
               </Descriptions.Item>
+              <Descriptions.Item label="Warehouse">
+                {detail.warehouse}
+              </Descriptions.Item>
               <Descriptions.Item label="Progress" span={1}>
-                <Tooltip
-                  title={`${detail.progress_stocks}% fullfilled`}
-                >
-                  <Progress
-                    percent={detail.progress_stocks}
-                  />
+                <Tooltip title={`${detail.progress_received}% received`}>
+                  <Progress percent={detail.progress_received} />
                 </Tooltip>
               </Descriptions.Item>
             </Descriptions>
@@ -76,4 +75,4 @@ function SalesOrderDetail() {
   );
 }
 
-export default SalesOrderDetail;
+export default PurchaseOrderDetail;

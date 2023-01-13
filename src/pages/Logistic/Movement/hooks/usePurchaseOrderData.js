@@ -1,6 +1,7 @@
 import { useState } from "react";
+import { Tooltip, Progress } from "antd";
 import { Link } from "react-router-dom";
-import salesOrderData from "../data/salesOrderData.json";
+import purchaseOrderData from "../data/purchaseOrderData.json";
 
 const columns = [
   {
@@ -9,24 +10,9 @@ const columns = [
     key: "code",
   },
   {
-    title: "STOCK",
-    key: "stock",
-    dataIndex: "stock",
-  },
-  {
-    title: "PO",
-    key: "purchase_order",
-    dataIndex: "purchase_order",
-  },
-  {
-    title: "SALES QUANTITY",
-    key: "sales_quantity",
-    dataIndex: "sales_quantity",
-  },
-  {
-    title: "REQUIRED QUANTITY",
-    key: "required_quantity",
-    dataIndex: "required_quantity",
+    title: "PROGRESS",
+    key: "progress",
+    dataIndex: "progress",
   },
   {
     title: "DUE DATE",
@@ -37,21 +23,22 @@ const columns = [
 
 const initialData = [];
 
-salesOrderData.map((salesOrder) => {
+purchaseOrderData.map((purchaseOrder) => {
   initialData.push({
-    key: salesOrder.id,
+    key: purchaseOrder.id,
     code: (
-      <Link to="/purchase-order/sales-order/detail">
+      <Link to="/logistic/movement/purchase/detail">
         <span>
-          <b>{salesOrder.code}</b>
+          <b>{purchaseOrder.code}</b>
         </span>
       </Link>
     ),
-    stock: salesOrder.stock,
-    po: salesOrder.po,
-    sales_quantity: salesOrder.sales_quantity,
-    required_quantity: salesOrder.required_quantity,
-    due_date: salesOrder.due_date,
+    progress: (
+      <Tooltip title={`${purchaseOrder.progress}% received`}>
+        <Progress percent={purchaseOrder.progress} />
+      </Tooltip>
+    ),
+    due_date: purchaseOrder.due_date,
   });
 });
 

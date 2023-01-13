@@ -36,7 +36,7 @@ function PurchaseOrderForm() {
                 {detail.supplier.name}
               </Descriptions.Item>
               <Descriptions.Item label="Address">
-                {detail.supplier.shipping_address}
+                {detail.supplier.address}
               </Descriptions.Item>
               <Descriptions.Item
                 label="Due Date"
