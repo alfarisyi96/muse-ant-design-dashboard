@@ -3114,3 +3114,7 @@ section.ant-layout.ant-layout-has-sider.layout-dashboard.layout-profile .header-
 .form-container {
   padding: 20px;
 }
+
+.layout-dashboard .ant-layout-sider.sider-primary .ant-menu-inline .ant-menu-submenu {
+  margin-bottom: 1rem;
+}

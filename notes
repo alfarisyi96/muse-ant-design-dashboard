@@ -160,20 +160,37 @@ once status reach completed, stock refresh doesnt work
             - filter
                 Invoice Number      Sales Order     Due Date   User    Status
             - data
-                No.     Invoice Number       Sales Order     Total Amount    Total Paid     Due Date       User    Status
+                No.     Invoice Number       Sales Order     Total Amount    Due Date       User    Status
+
+            [Sales Order] Tab
+            - data
+                No.     Code     Total Amount    Total Paid     Progress
+
         
-        - form
+        - detail sales
+            Customer Name
+            Total Amount
+            Total Paid
+            Progress
+
+            - invoices
+                No.     Invoice Number       Total Amount    Due Date       User    Status
+
+        - form invoice
             Invoice Number
             Sales Order
             Due Date
+            Notes
+            Total Amount
 
-        - detail
+        - detail invoice
             [STATUS]
             Invoice Number
             Sales Order
             Due Date
             Total Amount
 
+            # under consideration
             [PAYMENT HISTORY] [ADD PAYMENT]
             - table
                 - filter
@@ -202,12 +219,27 @@ once status reach completed, stock refresh doesnt work
             - filter
                 Invoice Number      Purchase Order     Due Date   User    Status
             - data
-                No.     Invoice Number       Purchase Order     Total Amount    Total Paid     Due Date       User    Status
+                No.     Invoice Number       Purchase Order     Total Amount    Due Date       User    Status
+
+            [Purchase Order] Tab
+            - data
+                No.     Code     Total Amount    Total Paid     Progress
         
+        - detail purchase
+            Supplier Name
+            Total Amount
+            Total Paid
+            Progress
+
+            - invoices
+                No.     Invoice Number       Total Amount    Due Date       User    Status
+
         - form
             Invoice Number
             Purchase Order
             Due Date
+            Notes
+            Total Amount
 
         - detail
             [STATUS]

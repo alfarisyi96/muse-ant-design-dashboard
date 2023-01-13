@@ -21,6 +21,14 @@ import PurchaseOrderForm from "./pages/Purchase/PurchaseOrder/PurchaseOrderForm"
 import PurchaseOrderDetail from "./pages/Purchase/PurchaseOrder/PurchaseOrderDetail";
 import PurchaseOrderSalesDetail from "./pages/Purchase/PurchaseOrder/SalesOrderDetail";
 
+import FinanceSalesOrder from "./pages/Finance/SalesOrder";
+import FinanceSalesOrderForm from "./pages/Finance/SalesOrder/SalesOrderForm";
+import FinanceSalesOrderDetail from "./pages/Finance/SalesOrder/SalesOrderDetail";
+
+import FinancePurchaseOrder from "./pages/Finance/PurchaseOrder";
+import FinancePurchaseOrderForm from "./pages/Finance/PurchaseOrder/PurchaseOrderForm";
+import FinancePurchaseOrderDetail from "./pages/Finance/PurchaseOrder/PurchaseOrderDetail";
+
 function App() {
   return (
     <div className="App">
@@ -39,6 +47,14 @@ function App() {
           <Route exact path="/purchase-order/form" component={PurchaseOrderForm} />
           <Route exact path="/purchase-order/detail/:id" component={PurchaseOrderDetail} />
           <Route exact path="/purchase-order/sales-order/:id" component={PurchaseOrderSalesDetail} />
+
+          <Route exact path="/finance/sales-order" component={FinanceSalesOrder} />
+          <Route exact path="/finance/sales-order/form" component={FinanceSalesOrderForm} />
+          <Route exact path="/finance/sales-order/detail/:id" component={FinanceSalesOrderDetail} />
+          
+          <Route exact path="/finance/purchase-order" component={FinancePurchaseOrder} />
+          <Route exact path="/finance/purchase-order/form" component={FinancePurchaseOrderForm} />
+          <Route exact path="/finance/purchase-order/detail/:id" component={FinancePurchaseOrderDetail} />
           
           <Route exact path="/tables" component={Tables} />
           <Route exact path="/billing" component={Billing} />
