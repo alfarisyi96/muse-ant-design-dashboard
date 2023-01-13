@@ -73,13 +73,13 @@ once status reach completed, stock refresh doesnt work
     - table
         [NEW PURCHASE ORDER] button
         - filter
-            Code   Supplier     Due Date   User    Status
+            Code   Supplier     Warehouse   Due Date   User    Status
         - data
             [Purchase Order]
-                No.     Code       Supplier     Total Price      Progress       Due Date       Created Date    User    Status
+                No.     Code       Supplier     Warehouse       Total Amount      Progress       Due Date       Created Date    User    Status
 
             [Sales Order]
-                No.     Code       Stock    PO      Required   Due Date
+                No.     Code       Stock    PO      Sales Quantity  Required Quantity   Due Date
     - form
         Supplier Name
         Sales Order (multiple)
@@ -88,9 +88,9 @@ once status reach completed, stock refresh doesnt work
         Created Date
 
         [SALES ORDER CODE] [REFRESH STOCK]
-        No.     Item    Stock   PO      Required    Quantity    Price   Sub Total
+        No.     Item    Stock   PO      Sales Quantity  Required Quantity    Quantity    Price   Sub Total
 
-        Total Price
+        Total Amount
 
         [SAVE]
     - detail 
@@ -103,15 +103,15 @@ once status reach completed, stock refresh doesnt work
         User
         
         [All Item] tab
-        No.     Item    Quantity    Price   Sub Total
+        No.     Item    Quantity    Received    Price   Sub Total
 
         Total Price
 
         [SALES ORDER] tab
             [SALES ORDER CODE] [REFRESH STOCK]
-            No.     Item    Stock   PO      Required    Quantity    Price   Sub Total
+            No.     Item    Stock   PO      Sales Quantity  Required Quantity    Quantity    Price   Sub Total
 
-        Total Price
+        Total Amount
 # Logistic
     Type:
         - SALES
