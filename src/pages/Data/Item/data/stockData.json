@@ -1,0 +1,44 @@
+[
+    {
+        "id": "1",
+        "code": "I00001",
+        "name": "Clamp Omega 1 1/2\" - Plating",
+        "est_sales_price": 15000,
+        "est_purchase_price": 8000
+    },
+    {
+        "id": "2",
+        "code": "I00002",
+        "name": "Clamp One Hole 3/4\" - HDG",
+        "est_sales_price": 25000,
+        "est_purchase_price": 15000
+    },
+    {
+        "id": "3",
+        "code": "I00003",
+        "name": "Clamp One Hole 1\" - HDG",
+        "est_sales_price": 2500,
+        "est_purchase_price": 800
+    },
+    {
+        "id": "4",
+        "code": "I00004",
+        "name": "Clamp Omega 1\" - HDG",
+        "est_sales_price": 3500,
+        "est_purchase_price": 1500
+    },
+    {
+        "id": "5",
+        "code": "I00005",
+        "name": "Clamp Omega 1 1/2\" - HDG - Tipis",
+        "est_sales_price": 4000,
+        "est_purchase_price": 2000
+    },
+    {
+        "id": "6",
+        "code": "I00006",
+        "name": "Clamp Omega G22 3/4\" - Plating",
+        "est_sales_price": 5000,
+        "est_purchase_price": 2500
+    }
+]

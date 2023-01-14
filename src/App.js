@@ -29,6 +29,13 @@ import FinancePurchaseOrder from "./pages/Finance/PurchaseOrder";
 import FinancePurchaseOrderForm from "./pages/Finance/PurchaseOrder/PurchaseOrderForm";
 import FinancePurchaseOrderDetail from "./pages/Finance/PurchaseOrder/PurchaseOrderDetail";
 
+import Stock from "./pages/Logistic/Stock";
+
+import DataItem from "./pages/Data/Item";
+import DataWarehouse from "./pages/Data/Warehouse";
+import DataCustomer from "./pages/Data/Customer";
+import DataSupplier from "./pages/Data/Supplier";
+
 import StockMovement from "./pages/Logistic/Movement";
 import StockMovementForm from "./pages/Logistic/Movement/StockMovementForm";
 import StockMovementDetail from "./pages/Logistic/Movement/StockMovementDetail";
@@ -67,6 +74,13 @@ function App() {
           <Route exact path="/logistic/movement/detail/:id" component={StockMovementDetail} />
           <Route exact path="/logistic/movement/sales/:id" component={StockMovementSalesOrderDetail} />
           <Route exact path="/logistic/movement/purchase/:id" component={StockMovementPurchaseOrderDetail} />
+
+          <Route exact path="/logistic/stock" component={Stock} />
+
+          <Route exact path="/data/item" component={DataItem} />
+          <Route exact path="/data/customer" component={DataCustomer} />
+          <Route exact path="/data/supplier" component={DataSupplier} />
+          <Route exact path="/data/warehouse" component={DataWarehouse} />
           
           <Route exact path="/tables" component={Tables} />
           <Route exact path="/billing" component={Billing} />

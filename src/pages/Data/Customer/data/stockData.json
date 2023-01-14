@@ -1,0 +1,16 @@
+[
+    {
+        "id": "1",
+        "code": "C00001",
+        "name": "PT Customer A",
+        "phone_number": "+021 88964 964",
+        "address": "Jl Raya Bekasi"
+    },
+    {
+        "id": "2",
+        "code": "C00002",
+        "name": "PT Customer B",
+        "phone_number": "+021 88924 224",
+        "address": "Jl Raya Bekasi"
+    }
+]

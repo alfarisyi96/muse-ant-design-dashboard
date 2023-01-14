@@ -189,11 +189,11 @@ function Sidenav({ color }) {
               <span>Sales Order</span>
             </NavLink>
           </Menu.Item>
-          <Menu.Item>
+          {/* <Menu.Item>
             <NavLink to="/sales-orde/reportr">
               <span>Report</span>
             </NavLink>
-          </Menu.Item>
+          </Menu.Item> */}
         </Menu.SubMenu>
         <Menu.SubMenu
           icon={
@@ -213,11 +213,11 @@ function Sidenav({ color }) {
               <span>Purchase Order</span>
             </NavLink>
           </Menu.Item>
-          <Menu.Item>
+          {/* <Menu.Item>
             <NavLink to="/purchase-order/report">
               <span>Report</span>
             </NavLink>
-          </Menu.Item>
+          </Menu.Item> */}
         </Menu.SubMenu>
         <Menu.SubMenu
           icon={
@@ -266,11 +266,11 @@ function Sidenav({ color }) {
               <span>Purchase Order</span>
             </NavLink>
           </Menu.Item>
-          <Menu.Item>
+          {/* <Menu.Item>
             <NavLink to="/finance/report">
               <span>Report</span>
             </NavLink>
-          </Menu.Item>
+          </Menu.Item> */}
         </Menu.SubMenu>
         <Menu.Item className="menu-item-header" key="master data">
           Master Data
@@ -299,7 +299,7 @@ function Sidenav({ color }) {
             </NavLink>
           </Menu.Item>
           <Menu.Item>
-            <NavLink to="/data/cusstomer">
+            <NavLink to="/data/customer">
               <span>Customer</span>
             </NavLink>
           </Menu.Item>

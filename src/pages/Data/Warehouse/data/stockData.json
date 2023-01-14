@@ -1,0 +1,14 @@
+[
+    {
+        "id": "1",
+        "code": "W00001",
+        "name": "Gudang Jakarta",
+        "address": "Jl Raya Bekasi"
+    },
+    {
+        "id": "2",
+        "code": "W00002",
+        "name": "Gudang Bekasi",
+        "address": "Jl Raya Bekasi"
+    }
+]
