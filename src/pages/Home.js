@@ -141,30 +141,30 @@ function Home() {
   ];
   const count = [
     {
-      today: "Today’s Sales",
-      title: "$53,000",
+      today: "Today’s Sales Amount",
+      title: "53.000.000",
       persent: "+30%",
       icon: dollor,
       bnb: "bnb2",
     },
     {
-      today: "Today’s Users",
-      title: "3,200",
+      today: "Today’s Sales Order",
+      title: "15",
+      persent: "+20%",
+      icon: dollor,
+      bnb: "bnb2",
+    },
+    {
+      today: "New Customers",
+      title: "+12",
       persent: "+20%",
       icon: profile,
       bnb: "bnb2",
     },
     {
-      today: "New Clients",
-      title: "+1,200",
-      persent: "-20%",
-      icon: heart,
-      bnb: "redtext",
-    },
-    {
-      today: "New Orders",
-      title: "$13,200",
-      persent: "10%",
+      today: "Today’s Purchase Orders",
+      title: "10",
+      persent: "",
       icon: cart,
       bnb: "bnb2",
     },
@@ -173,20 +173,11 @@ function Home() {
   const list = [
     {
       img: ava1,
-      Title: "Soft UI Shopify Version",
-      bud: "$14,000",
+      Title: "PT UNITED TRACTORS",
+      bud: "Rp 140.000.000",
       progress: <Progress percent={60} size="small" />,
       member: (
         <div className="avatar-group mt-2">
-          <Tooltip placement="bottom" title="Ryan Tompson">
-            <img className="tootip-img" src={team1} alt="" />
-          </Tooltip>
-          <Tooltip placement="bottom" title="Romina Hadid">
-            <img className="tootip-img" src={team2} alt="" />
-          </Tooltip>
-          <Tooltip placement="bottom" title="Alexander Smith">
-            <img className="tootip-img" src={team3} alt="" />
-          </Tooltip>
           <Tooltip placement="bottom" title="Jessica Doe">
             <img className="tootip-img" src={team4} alt="" />
           </Tooltip>
@@ -195,33 +186,24 @@ function Home() {
     },
     {
       img: ava2,
-      Title: "Progress Track",
-      bud: "$3,000",
+      Title: "PT PAMA PERSADA",
+      bud: "Rp 250.000.000",
       progress: <Progress percent={10} size="small" />,
       member: (
         <div className="avatar-group mt-2">
           <Tooltip placement="bottom" title="Ryan Tompson">
             <img className="tootip-img" src={team1} alt="" />
           </Tooltip>
-          <Tooltip placement="bottom" title="Romina Hadid">
-            <img className="tootip-img" src={team2} alt="" />
-          </Tooltip>
         </div>
       ),
     },
     {
       img: ava3,
-      Title: "Fix Platform Errors",
-      bud: "Not Set",
+      Title: "PT ALFA SOLUSI KREATIF",
+      bud: "Rp 300.000.000",
       progress: <Progress percent={100} size="small" status="active" />,
       member: (
         <div className="avatar-group mt-2">
-          <Tooltip placement="bottom" title="Ryan Tompson">
-            <img className="tootip-img" src={team1} alt="" />
-          </Tooltip>
-          <Tooltip placement="bottom" title="Romina Hadid">
-            <img className="tootip-img" src={team1} alt="" />
-          </Tooltip>
           <Tooltip placement="bottom" title="Alexander Smith">
             <img className="tootip-img" src={team3} alt="" />
           </Tooltip>
@@ -230,14 +212,11 @@ function Home() {
     },
     {
       img: ava4,
-      Title: "Launch new Mobile App",
-      bud: "$20,600",
+      Title: "PT NAYAKA PRATAMA",
+      bud: "Rp 156.000.600",
       progress: <Progress percent={100} size="small" status="active" />,
       member: (
         <div className="avatar-group mt-2">
-          <Tooltip placement="bottom" title="Ryan Tompson">
-            <img className="tootip-img" src={team1} alt="" />
-          </Tooltip>
           <Tooltip placement="bottom" title="Romina Hadid">
             <img className="tootip-img" src={team2} alt="" />
           </Tooltip>
@@ -246,22 +225,13 @@ function Home() {
     },
     {
       img: ava5,
-      Title: "Add the New Landing Page",
-      bud: "$4,000",
+      Title: "PT GLOBAL SERVICE INDONESIA",
+      bud: "Rp 54.000.000",
       progress: <Progress percent={80} size="small" />,
       member: (
         <div className="avatar-group mt-2">
           <Tooltip placement="bottom" title="Ryan Tompson">
             <img className="tootip-img" src={team1} alt="" />
-          </Tooltip>
-          <Tooltip placement="bottom" title="Romina Hadid">
-            <img className="tootip-img" src={team2} alt="" />
-          </Tooltip>
-          <Tooltip placement="bottom" title="Alexander Smith">
-            <img className="tootip-img" src={team3} alt="" />
-          </Tooltip>
-          <Tooltip placement="bottom" title="Jessica Doe">
-            <img className="tootip-img" src={team4} alt="" />
           </Tooltip>
         </div>
       ),
@@ -269,21 +239,18 @@ function Home() {
 
     {
       img: ava6,
-      Title: "Redesign Online Store",
-      bud: "$2,000",
+      Title: "PT TIKET GLOBAL NETWORK",
+      bud: "Rp 170.000.000",
       progress: (
         <Progress
           percent={100}
           size="small"
           status="exception"
-          format={() => "Cancel"}
+          format={() => "Void"}
         />
       ),
       member: (
         <div className="avatar-group mt-2">
-          <Tooltip placement="bottom" title="Ryan Tompson">
-            <img className="tootip-img" src={team1} alt="" />
-          </Tooltip>
           <Tooltip placement="bottom" title="Romina Hadid">
             <img className="tootip-img" src={team2} alt="" />
           </Tooltip>
@@ -294,30 +261,32 @@ function Home() {
 
   const timelineList = [
     {
-      title: "$2,400 - Redesign store",
-      time: "09 JUN 7:20 PM",
-      color: "green",
-    },
-    {
-      title: "New order #3654323",
-      time: "08 JUN 12:20 PM",
-      color: "green",
-    },
-    {
-      title: "Company server payments",
+      title: "Sales Order Complete #S000124",
       time: "04 JUN 3:10 PM",
+      color: "green",
     },
     {
-      title: "New card added for order #4826321",
+      title: "Sales Order Complete #S000123",
+      time: "04 JUN 3:10 PM",
+      color: "green",
+    },
+    {
+      title: "Sales Order Complete #S000122",
+      time: "04 JUN 3:10 PM",
+      color: "green",
+    },
+    {
+      title: "New Purchase Order #P000321",
       time: "02 JUN 2:45 PM",
+      color: "gray",
     },
     {
-      title: "Unlock folders for development",
+      title: "Purchase Order Complete #P003232",
       time: "18 MAY 1:30 PM",
     },
     {
-      title: "New order #46282344",
-      time: "14 MAY 3:30 PM",
+      title: "New Sales Order #S00023",
+      time: "14 JAN 3:30 PM",
       color: "gray",
     },
   ];
@@ -391,7 +360,7 @@ function Home() {
             <Card bordered={false} className="criclebox cardbody h-full">
               <div className="project-ant">
                 <div>
-                  <Title level={5}>Projects</Title>
+                  <Title level={5}>Sales Orders</Title>
                   <Paragraph className="lastweek">
                     done this month<span className="blue">40%</span>
                   </Paragraph>
@@ -399,9 +368,8 @@ function Home() {
                 <div className="ant-filtertabs">
                   <div className="antd-pro-pages-dashboard-analysis-style-salesExtra">
                     <Radio.Group onChange={onChange} defaultValue="a">
-                      <Radio.Button value="a">ALL</Radio.Button>
-                      <Radio.Button value="b">ONLINE</Radio.Button>
-                      <Radio.Button value="c">STORES</Radio.Button>
+                      <Radio.Button value="a">ON PROGRESS</Radio.Button>
+                      <Radio.Button value="b">COMPLETED</Radio.Button>
                     </Radio.Group>
                   </div>
                 </div>
@@ -410,10 +378,10 @@ function Home() {
                 <table className="width-100">
                   <thead>
                     <tr>
-                      <th>COMPANIES</th>
-                      <th>MEMBERS</th>
-                      <th>BUDGET</th>
-                      <th>COMPLETION</th>
+                      <th>CUSTOMER</th>
+                      <th>SALES</th>
+                      <th>AMOUNT</th>
+                      <th>PROGRESS</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -421,11 +389,6 @@ function Home() {
                       <tr key={index}>
                         <td>
                           <h6>
-                            <img
-                              src={d.img}
-                              alt=""
-                              className="avatar-sm mr-10"
-                            />{" "}
                             {d.Title}
                           </h6>
                         </td>
@@ -442,17 +405,6 @@ function Home() {
                     ))}
                   </tbody>
                 </table>
-              </div>
-              <div className="uploadfile shadow-none">
-                <Upload {...uploadProps}>
-                  <Button
-                    type="dashed"
-                    className="ant-full-box"
-                    icon={<ToTopOutlined />}
-                  >
-                    <span className="click">Click to Upload</span>
-                  </Button>
-                </Upload>
               </div>
             </Card>
           </Col>
@@ -476,13 +428,6 @@ function Home() {
                     </Timeline.Item>
                   ))}
                 </Timeline>
-                <Button
-                  type="primary"
-                  className="width-100"
-                  onClick={() => setReverse(!reverse)}
-                >
-                  {<MenuUnfoldOutlined />} REVERSE
-                </Button>
               </div>
             </Card>
           </Col>

@@ -19,20 +19,20 @@ function EChart() {
 
   const items = [
     {
-      Title: "3,6K",
-      user: "Users",
+      Title: "10jt",
+      user: "today",
     },
     {
-      Title: "2m",
-      user: "Clicks",
+      Title: "70jt",
+      user: "this week",
     },
     {
-      Title: "$772",
-      user: "Sales",
+      Title: "300jt",
+      user: "this month",
     },
     {
-      Title: "82",
-      user: "Items",
+      Title: "3,6m",
+      user: "this year",
     },
   ];
 
@@ -48,13 +48,9 @@ function EChart() {
         />
       </div>
       <div className="chart-vistior">
-        <Title level={5}>Active Users</Title>
+        <Title level={5}>Sales</Title>
         <Paragraph className="lastweek">
           than last week <span className="bnb2">+30%</span>
-        </Paragraph>
-        <Paragraph className="lastweek">
-          We have created multiple options for you to put together and customise
-          into pixel perfect pages.
         </Paragraph>
         <Row gutter>
           {items.map((v, index) => (
