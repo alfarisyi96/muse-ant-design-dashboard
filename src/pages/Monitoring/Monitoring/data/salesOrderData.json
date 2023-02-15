@@ -6,8 +6,10 @@
         "purchase_order": "30",
         "sales_quantity": "100",
         "required_quantity": "50",
-        "progress_stocks": "50",
+        "delivered_quantity": "20",
         "due_date": "12/01/2023",
+        "progress_stocks": "70",
+        "progress_delivered": "20",
         "created_date": "10/01/2023"
     },
     {
@@ -17,8 +19,10 @@
         "purchase_order": "10",
         "sales_quantity": "150",
         "required_quantity": "100",
-        "progress_stocks": "70",
+        "delivered_quantity": "50",
         "due_date": "15/01/2023",
+        "progress_stocks": "80",
+        "progress_delivered": "50",
         "created_date": "10/01/2023"
     },
     {
@@ -28,8 +32,10 @@
         "purchase_order": "0",
         "sales_quantity": "220",
         "required_quantity": "220",
-        "progress_stocks": "0",
+        "delivered_quantity": "0",
         "due_date": "20/01/2023",
+        "progress_stocks": "0",
+        "progress_delivered": "0",
         "created_date": "10/01/2023"
     },
     {
@@ -38,8 +44,10 @@
         "stock": "100",
         "purchase_order": "0",
         "sales_quantity": "150",
-        "required_quantity": "50",
-        "progress_stocks": "33",
+        "required_quantity": "0",
+        "delivered_quantity": "150",
+        "progress_stocks": "100",
+        "progress_delivered": "100",
         "due_date": "25/01/2023",
         "created_date": "10/01/2023"
     }

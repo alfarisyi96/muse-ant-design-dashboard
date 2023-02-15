@@ -269,3 +269,38 @@ once status reach completed, stock refresh doesnt work
                 Bank
                 Date Time
                 Document
+
+
+menu monitoring:
+    - update terakhir dari penjualan (sales, purchasing, logistic)
+
+    - purchase order terbagi 2 PO kecil dan besar
+
+penjualan pencatatn diskon dan pajak
+
+invoice custom amount
+purchase order khusus philips
+tambahin unit quantity
+comment di tiap data
+
+multicurrency untuk transaksi, convert ke idr untuk reporting
+
+walaupunm masih memo barang udah dikirim
+
+bahasa indonesia
+
+status monitoring
+
+barang udah dikirim (delivery order) baru kirim invoice
+
+finance sales order berdasarkan sales order atau delivery order
+
+status delivery order, di monitoring tercatat DO yang datang
+
+warning form sales order jika ada outstanding
+
+monitoring customer name
+
+attachment delivery order user terkait
+
+notes/comment pada data

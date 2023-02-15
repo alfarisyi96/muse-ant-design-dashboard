@@ -25,9 +25,9 @@ const columns = [
     dataIndex: "sales_quantity",
   },
   {
-    title: "REQUIRED QUANTITY",
-    key: "required_quantity",
-    dataIndex: "required_quantity",
+    title: "DELIVERED",
+    key: "delivered_quantity",
+    dataIndex: "delivered_quantity",
   },
   {
     title: "DUE DATE",
@@ -47,7 +47,7 @@ salesOrderData.map((salesOrder) => {
   initialData.push({
     key: salesOrder.id,
     code: (
-      <Link to="/purchase-order/sales-order/detail">
+      <Link to="/monitoring/detail/1">
         <span>
           <b>{salesOrder.code}</b>
         </span>
@@ -56,12 +56,17 @@ salesOrderData.map((salesOrder) => {
     stock: salesOrder.stock,
     purchase_order: salesOrder.purchase_order,
     sales_quantity: salesOrder.sales_quantity,
-    required_quantity: salesOrder.required_quantity,
+    delivered_quantity: salesOrder.delivered_quantity,
     due_date: salesOrder.due_date,
     progress: (
       <>
-        <Tooltip title={`${salesOrder.progress_stocks}% received`}>
-          <Progress percent={salesOrder.progress_stocks} />
+        <Tooltip
+          title={`${salesOrder.progress_delivered}% delivered / ${salesOrder.progress_stocks}% fulfilled`}
+        >
+          <Progress
+            percent={salesOrder.progress_stocks}
+            success={{ percent: salesOrder.progress_delivered }}
+          />
         </Tooltip>
       </>
     ),
@@ -69,7 +74,7 @@ salesOrderData.map((salesOrder) => {
 });
 
 const useData = () => {
-  const [data, setData] = useState(initialData);
+  const [data] = useState(initialData);
 
   return { data, columns };
 };

@@ -1,0 +1,31 @@
+{
+    "detail": {
+        "id": "1",
+        "code": "S00003",
+        "progress_stocks": "80",
+        "progress_delivered": "50",
+        "due_date": "20/01/2023",
+        "items": [
+            {
+                "name": "Clamp Omega 1 1/2\" - Plating",
+                "unit": "pcs",
+                "stock": 30,
+                "purchase_order": 0,
+                "sales_quantity": 100,
+                "required_quantity": 70,
+                "delivered_quantity": 20,
+                "remarks": "sedang PO"
+            },
+            {
+                "name": "Clamp One Hole 3/4\" - HDG",
+                "unit": "pcs",
+                "stock": 10,
+                "purchase_order": 50,
+                "sales_quantity": 130,
+                "required_quantity": 70,
+                "delivered_quantity": 20,
+                "remarks": "sedang PO"
+            }
+        ]
+    }
+}

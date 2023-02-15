@@ -12,6 +12,7 @@ import {
   Button,
   message,
   Upload,
+  Checkbox,
 } from "antd";
 import InputWrapper from "../../../../components/form/InputWrapper";
 import useFormData from "../hooks/useFormData";
@@ -138,6 +139,15 @@ function PurchaseOrderForm() {
                     <p>{detail.user.email}</p>
                   </div>
                 </Avatar.Group>
+              </Descriptions.Item>
+              <Descriptions.Item
+                span={1}
+                label=""
+                contentStyle={{ display: "inline-block" }}
+              >
+                <InputWrapper>
+                  <Checkbox>Hide from others</Checkbox>
+                </InputWrapper>
               </Descriptions.Item>
             </Descriptions>
           </div>

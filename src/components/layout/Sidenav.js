@@ -272,6 +272,25 @@ function Sidenav({ color }) {
             </NavLink>
           </Menu.Item> */}
         </Menu.SubMenu>
+        <Menu.SubMenu
+          icon={
+            <span
+              className="icon"
+              style={{
+                background: page === "tables" ? color : "",
+              }}
+            >
+              {tables}
+            </span>
+          }
+          title="Monitoring"
+        >
+          <Menu.Item>
+            <NavLink to="/monitoring">
+              <span>Monitoring</span>
+            </NavLink>
+          </Menu.Item>
+        </Menu.SubMenu>
         <Menu.Item className="menu-item-header" key="master data">
           Master Data
         </Menu.Item>

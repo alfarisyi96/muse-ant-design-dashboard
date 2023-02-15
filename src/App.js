@@ -29,6 +29,9 @@ import FinancePurchaseOrder from "./pages/Finance/PurchaseOrder";
 import FinancePurchaseOrderForm from "./pages/Finance/PurchaseOrder/PurchaseOrderForm";
 import FinancePurchaseOrderDetail from "./pages/Finance/PurchaseOrder/PurchaseOrderDetail";
 
+import Monitoring from "./pages/Monitoring/Monitoring";
+import MonitoringDetail from "./pages/Monitoring/Monitoring/MonitoringDetail";
+
 import Stock from "./pages/Logistic/Stock";
 
 import DataItem from "./pages/Data/Item";
@@ -76,6 +79,9 @@ function App() {
           <Route exact path="/logistic/movement/purchase/:id" component={StockMovementPurchaseOrderDetail} />
 
           <Route exact path="/logistic/stock" component={Stock} />
+
+          <Route exact path="/monitoring" component={Monitoring} />
+          <Route exact path="/monitoring/detail/:id" component={MonitoringDetail} />
 
           <Route exact path="/data/item" component={DataItem} />
           <Route exact path="/data/customer" component={DataCustomer} />
